@@ -619,3 +619,21 @@ body.modal-open { overflow: hidden; }
   .catalogue-ref-footer-strip { grid-template-columns: 1fr; margin: 0 18px 28px; }
   .catalogue-ref-footer-strip article { border-right: 0; border-bottom: 1px solid #e4c8aa; }
 }
+.result-count {
+  margin: -6px 0 15px;
+  color: #765c47;
+  font-size: 13px;
+  font-weight: 700;
+}
+.empty-results {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 42px 24px;
+  border: 1px dashed #d9bea3;
+  border-radius: 8px;
+  background: #fffaf3;
+  color: #6d5544;
+  text-align: center;
+  font-weight: 700;
+}
+.ref-load-more[hidden] { display: none; }
