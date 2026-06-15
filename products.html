@@ -4,76 +4,99 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Products — Little Surprise Dessert Catalogue</title>
-    <meta name="description" content="Dedicated Little Surprise product catalogue page with category filters and product detail popup." />
+    <meta name="description" content="Dedicated Little Surprise product catalogue page with reference-style filters, product grid, and product detail popup." />
     <link rel="preload" as="image" href="./assets/catalogue-banner-desserts.jpg" />
     <link rel="stylesheet" href="/src/styles.css" />
   </head>
-  <body>
-    <div class="announcement">
-      <span>Dedicated Product Page・完整產品放在這裡</span>
-      <span>WhatsApp 訂購: <a href="https://wa.me/85255310947?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%83%B3%E6%9F%A5%E8%A9%A2%20Little%20Surprise%20%E7%94%9C%E5%93%81%E8%A8%82%E8%B3%BC%E3%80%82">5531 0947</a></span>
+  <body class="catalogue-reference">
+    <div class="catalogue-topbar">
+      <span>手工製作・用心烘焙 🎀 Made in Hong Kong 🇭🇰</span>
+      <span>☏ Whatsapp 訂購: 5531 0947</span>
+      <span>🛵 工作室自取・本地送貨</span>
+      <span>📦 滿 $600 全港免運費 / 到店自取</span>
     </div>
 
-    <header class="site-header" id="top">
-      <a class="brand" href="./" aria-label="Little Surprise home">
-        <span class="brand-mark" aria-hidden="true"><span class="oven">▰</span><span class="cake">●</span></span>
-        <span><strong>LITTLE<br />SURPRISE</strong><small>PRODUCT PAGE</small></span>
+    <header class="catalogue-header" id="top">
+      <a class="catalogue-brand" href="./" aria-label="Little Surprise home">
+        <span class="brand-mark ref-brand-mark" aria-hidden="true"><span class="oven">▰</span><span class="cake">●</span></span>
+        <span><strong>LITTLE<br />SURPRISE</strong><small>BAKE & DESSERT</small></span>
       </a>
-      <nav class="main-nav" aria-label="Main navigation">
+      <nav class="catalogue-main-nav" aria-label="Main navigation">
         <a href="./">首頁</a>
         <a class="active" href="./products.html">所有產品</a>
-        <a href="#catalogue">分類</a>
-        <a href="#catalogue">點產品睇詳情</a>
-        <a href="#orderHelp">訂購</a>
+        <a href="./#popular">熱賣推介</a>
+        <a href="./#reviews">客人好評</a>
+        <a href="./#order">關於我們</a>
       </nav>
-      <div class="header-icons" aria-label="Quick actions">
+      <div class="catalogue-actions" aria-label="Quick actions">
         <a href="#catalogue" aria-label="Search products">⌕</a>
-        <a href="mailto:littlesurprisehk0912@gmail.com" aria-label="Email Little Surprise">♡</a>
-        <a class="bag" href="https://wa.me/85255310947?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%83%B3%E6%9F%A5%E8%A9%A2%20Little%20Surprise%20%E7%94%9C%E5%93%81%E8%A8%82%E8%B3%BC%E3%80%82" aria-label="WhatsApp order">▢</a>
+        <a href="mailto:littlesurprisehk0912@gmail.com" aria-label="Account enquiry">♙</a>
+        <a class="bag" href="https://wa.me/85255310947?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%83%B3%E6%9F%A5%E8%A9%A2%20Little%20Surprise%20%E7%94%9C%E5%93%81%E8%A8%82%E8%B3%BC%E3%80%82" aria-label="WhatsApp order">▢<span>2</span></a>
       </div>
     </header>
 
-    <main>
-      <section class="catalogue-page-hero section-panel">
-        <div class="reveal">
-          <p class="eyebrow">PRODUCT CATALOGUE</p>
-          <h1>所有產品集中喺呢一頁</h1>
-          <p>Reference 返你俾過的 catalogue page：左邊分類、右邊產品格仔。撳落任何產品，就彈出 product detail 畫面。</p>
+    <main class="catalogue-shell">
+      <section class="catalogue-ref-hero" aria-labelledby="catalogueTitle">
+        <div>
+          <h1 id="catalogueTitle">所有產品 <span>PRODUCT CATALOGUE</span></h1>
+          <p>多款手工甜品，每日新鮮製作，用心呈獻每一份美味驚喜。</p>
         </div>
-        <img src="./assets/catalogue-banner-desserts.jpg" alt="Catalogue banner dessert arrangement" />
+        <img src="./assets/catalogue-banner-desserts.jpg" alt="Assorted Little Surprise tart catalogue banner" />
       </section>
 
-      <section class="catalogue-band catalogue-page" id="catalogue">
-        <div class="shop-layout reveal">
-          <aside class="filters" aria-label="Catalogue filters">
+      <section class="catalogue-ref-grid" id="catalogue">
+        <aside class="ref-filter-panel" aria-label="Catalogue filters">
+          <div class="ref-filter-section categories">
             <h3>分類 <small>CATEGORY</small></h3>
-            <button class="filter active" data-filter="all">全部 All</button>
-            <button class="filter" data-filter="tart">TART 撻類</button>
-            <button class="filter" data-filter="mousse">MOUSSE 慕絲蛋糕</button>
-            <button class="filter" data-filter="roll">ROLL CAKE 長條卷蛋</button>
-            <button class="filter" data-filter="cake">CAKE 蛋糕</button>
-            <button class="filter" data-filter="seasonal">SEASONAL 季節限定</button>
-            <div class="filter-group"><strong>價格範圍</strong><label><input type="checkbox" /> 請 WhatsApp 查詢</label><label><input type="checkbox" /> HK$250 最低消費</label></div>
-            <div class="filter-group"><strong>供應狀態</strong><label><input type="checkbox" /> 現貨供應</label><label><input type="checkbox" /> 需預訂</label></div>
-          </aside>
-          <div class="products-area">
-            <div class="selected-row"><span>已選條件: <b>熱門 🔥</b></span><label>排序方式: <select><option>最新上架</option><option>熱門推介</option></select></label></div>
-            <div class="catalogue-grid" id="productGrid"></div>
-            <button class="button outline load-more" type="button">載入更多產品⌄</button>
+            <button class="filter active" data-filter="tart"><span>🥧 TART 撻類</span><em>28</em></button>
+            <button class="filter" data-filter="mousse"><span>🍮 MOUSSE 慕絲蛋糕</span><em>18</em></button>
+            <button class="filter" data-filter="roll"><span>🍰 ROLL CAKE 長條卷蛋</span><em>12</em></button>
+            <button class="filter" data-filter="cake"><span>🎂 CAKE 蛋糕</span><em>15</em></button>
+            <button class="filter" data-filter="seasonal"><span>🥐 CROISSANT 牛角酥</span><em>8</em></button>
+            <button class="filter" data-filter="all"><span>🍪 SEASONAL 季節限定</span><em>10</em></button>
           </div>
+
+          <div class="ref-filter-section">
+            <h3>價格範圍 <small>PRICE</small></h3>
+            <label><input type="checkbox" /> HK$0 - HK$50 <em>(25)</em></label>
+            <label><input type="checkbox" /> HK$50 - HK$100 <em>(38)</em></label>
+            <label><input type="checkbox" /> HK$100 - HK$150 <em>(21)</em></label>
+            <label><input type="checkbox" /> HK$150 或以上 <em>(9)</em></label>
+          </div>
+
+          <div class="ref-filter-section">
+            <h3>口味 <small>FLAVOR</small></h3>
+            <label><input type="checkbox" /> 朱古力 Chocolate <em>(28)</em></label>
+            <label><input type="checkbox" /> 抹茶 Matcha <em>(14)</em></label>
+            <label><input type="checkbox" /> 芝士 Cheese <em>(18)</em></label>
+            <label><input type="checkbox" /> 水果 Fruit <em>(24)</em></label>
+            <label><input type="checkbox" /> 焦糖 / 咖啡 Caramel / Coffee <em>(12)</em></label>
+            <label><input type="checkbox" /> 伯爵茶 Earl Grey <em>(9)</em></label>
+            <label><input type="checkbox" /> 其他 Others <em>(8)</em></label>
+          </div>
+
+          <div class="ref-filter-section availability">
+            <h3>供應狀態 <small>AVAILABILITY</small></h3>
+            <label><input type="checkbox" /> 現貨供應 In Stock <em>(62)</em></label>
+            <label><input type="checkbox" /> 需預訂 Pre-order <em>(19)</em></label>
+          </div>
+        </aside>
+
+        <div class="ref-products-area">
+          <div class="ref-selected-row">
+            <div class="selected-chips"><span>已選條件:</span><button type="button">TART 撻類 ×</button><button type="button">熱賣 🔥 ×</button></div>
+            <label>排序方式: <select><option>最新上架</option><option>熱門推介</option><option>價格由低至高</option></select></label>
+          </div>
+          <div class="catalogue-grid" id="productGrid"></div>
+          <button class="ref-load-more" type="button">載入更多產品 <span>⌄</span></button>
         </div>
       </section>
 
-      <section class="order product-order-help" id="orderHelp">
-        <div class="order-card reveal">
-          <h2>Product popup flow</h2>
-          <ol><li>客人喺 catalogue 撳產品。</li><li>彈出 product detail 畫面。</li><li>可睇大圖、產品描述、數量。</li><li>按 WhatsApp 查詢。</li></ol>
-        </div>
-        <div class="order-card details reveal">
-          <h2>Demo note</h2>
-          <p>產品相和內容仍是 concept/reference crop。正式 launch 前應換成店主授權圖片、價錢、尺寸、庫存和訂購規則。</p>
-          <p class="note">This page is intentionally the full product page. Homepage should stay artistic and curated.</p>
-        </div>
+      <section class="catalogue-ref-footer-strip" id="orderHelp" aria-label="Ordering details">
+        <article><span>♨</span><div><strong>全人手製作・法式甜品</strong><small>為你帶來每一個小驚喜</small></div></article>
+        <article><span>☏</span><div><strong>WhatsApp 訂購 / 查詢</strong><small>5531 0947</small></div></article>
+        <article><span>🛵</span><div><strong>工作室自取・本地送貨</strong><small>靈活取貨・方便快捷</small></div></article>
+        <article><span>◎</span><div><strong>關注我們</strong><small>@little.surprise_hk<br />查看更多新品及優惠</small></div></article>
       </section>
     </main>
 
@@ -86,7 +109,7 @@
       <div class="detail-info modal-info">
         <p class="breadcrumb" data-modal-breadcrumb>首頁 › Product Catalogue › 焦糖海鹽朱古力撻</p>
         <h2 id="modalProductTitle" data-modal-title>焦糖海鹽朱古力撻</h2>
-        <p class="detail-price">價格請 WhatsApp 確認</p>
+        <p class="detail-price">HK$38</p>
         <p data-modal-copy>點擊產品後彈出的詳情內容。</p>
         <ul class="icon-list" data-modal-notes><li>手工製作・新鮮製作</li><li>實際口味、尺寸與供應請向店舖確認</li></ul>
         <div class="qty"><span>數量</span><button type="button" data-qty="minus">−</button><output id="qty">1</output><button type="button" data-qty="plus">＋</button></div>
@@ -94,12 +117,11 @@
       </div>
     </dialog>
 
-    <footer class="site-footer">
+    <footer class="site-footer catalogue-ref-disclaimer">
       <div><strong>Little Surprise product catalogue concept</strong><p>Speculative website concept only — not affiliated with Little Surprise.</p></div>
-      <div><p>Public evidence used: Canva page details, public IG follower count noted in handoff, public search snippets. Product images are reference/demo crops and should be replaced with licensed/owner-approved assets before launch.</p></div>
+      <div><p>Product images are reference/demo crops and should be replaced with licensed/owner-approved assets before launch. Prices shown here are layout placeholders to match the supplied reference.</p></div>
     </footer>
 
-    <a class="floating-wa" href="https://wa.me/85255310947?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%83%B3%E6%9F%A5%E8%A9%A2%20Little%20Surprise%20%E7%94%9C%E5%93%81%E8%A8%82%E8%B3%BC%E3%80%82" aria-label="WhatsApp Little Surprise enquiry">WhatsApp<br /><span>查詢</span></a>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
