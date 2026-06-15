@@ -10,6 +10,7 @@ const products = [
   { name: '芒果熱情果慕絲', type: 'mousse', img: '/assets/mango-cheesecake.jpg', detail: '/assets/mango-cheesecake.jpg', price: 'HK$46', priceNum: 46, flavors: ['fruit', 'cheese'], availability: 'preorder', hot: false, sortOrder: 4, copy: '水果系派對甜品概念。', badge: '', notes: ['熱帶果香', '芝士底', '季節供應'] },
   { name: '桂花黑糖蛋糕', type: 'cake', img: '/assets/cream-cake.jpg', detail: '/assets/cream-cake.jpg', price: 'HK$42', priceNum: 42, flavors: ['other'], availability: 'preorder', hot: false, sortOrder: 3, copy: '季節限定風味示意。', badge: '', notes: ['桂花香', '黑糖層次', '限定口味'] },
   { name: 'Butter Cake', type: 'cake', img: '/assets/catalogue-banner-desserts.jpg', detail: '/assets/catalogue-banner-desserts.jpg', price: 'HK$58', priceNum: 58, flavors: ['other'], availability: 'in-stock', hot: false, sortOrder: 2, copy: '牛油蛋糕分類卡，正式圖文待店方提供。', badge: '', notes: ['經典牛油香', '適合送禮', '資料待確認'] },
+  { name: '迷你牛角酥', type: 'croissant', img: '/assets/hero-dessert-board.jpg', detail: '/assets/hero-dessert-board.jpg', price: 'HK$30', priceNum: 30, flavors: ['other'], availability: 'in-stock', hot: false, sortOrder: 2, copy: '迷你牛角酥，適合派對小食與散水餅分享。', badge: '', notes: ['酥皮口感', '適合分享', '可 WhatsApp 查詢口味'] },
   { name: 'Soft Cookies', type: 'seasonal', img: '/assets/hero-dessert-board.jpg', detail: '/assets/hero-dessert-board.jpg', price: 'HK$26', priceNum: 26, flavors: ['chocolate', 'other'], availability: 'in-stock', hot: false, sortOrder: 1, copy: 'Soft cookies 分類，適合加進 catalogue。', badge: '', notes: ['小食分享', '口味可查詢', '適合散水餅'] },
 ];
 
@@ -32,6 +33,29 @@ const labelMap = {
   chocolate: '朱古力', matcha: '抹茶', cheese: '芝士', fruit: '水果', caramel: '焦糖 / 咖啡', 'earl-grey': '伯爵茶', other: '其他',
   'in-stock': '現貨供應', preorder: '需預訂',
 };
+
+
+function countForFilter(group, value) {
+  if (group === 'category') return value === 'all' ? products.length : products.filter((p) => p.type === value).length;
+  if (group === 'price') return products.filter((p) => priceMatches(p, new Set([value]))).length;
+  if (group === 'flavor') return products.filter((p) => p.flavors.includes(value)).length;
+  if (group === 'availability') return products.filter((p) => p.availability === value).length;
+  return 0;
+}
+
+function updateFilterCounts() {
+  document.querySelectorAll('.filter[data-filter]').forEach((button) => {
+    const count = countForFilter('category', button.dataset.filter);
+    const counter = button.querySelector('em');
+    if (counter) counter.textContent = count;
+  });
+
+  document.querySelectorAll('[data-filter-group]').forEach((input) => {
+    const label = input.closest('label');
+    const counter = label?.querySelector('em');
+    if (counter) counter.textContent = `(${countForFilter(input.dataset.filterGroup, input.value)})`;
+  });
+}
 
 function productCard(p) {
   return `
@@ -143,6 +167,7 @@ function syncFilterButtons() {
   });
 }
 
+updateFilterCounts();
 renderProducts();
 
 document.querySelectorAll('.filter').forEach((button) => {
