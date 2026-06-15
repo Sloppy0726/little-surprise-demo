@@ -4,107 +4,79 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Little Surprise — Handmade Dessert Ordering Demo</title>
-    <meta name="description" content="Speculative Little Surprise artistic homepage with dedicated product catalogue page." />
+    <meta name="description" content="Speculative Little Surprise homepage closely matching the supplied reference layout." />
     <link rel="preload" as="image" href="./assets/hero-dessert-board.jpg" />
     <link rel="stylesheet" href="/src/styles.css" />
   </head>
-  <body>
-    <div class="announcement">
-      <span>手工製作・用心烘焙 🇭🇰 Made in Hong Kong</span>
-      <span>WhatsApp 訂購: <a href="https://wa.me/85255310947?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%83%B3%E6%9F%A5%E8%A9%A2%20Little%20Surprise%20%E7%94%9C%E5%93%81%E8%A8%82%E8%B3%BC%E3%80%82">5531 0947</a></span>
+  <body class="reference-home">
+    <div class="announcement ref-announcement">
+      <span>手工製作・用心烘焙 🇭🇰 Made in Hong Kong 🇭🇰</span>
+      <span>◉ Whatsapp 訂購: <a href="https://wa.me/85255310947?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%83%B3%E6%9F%A5%E8%A9%A2%20Little%20Surprise%20%E7%94%9C%E5%93%81%E8%A8%82%E8%B3%BC%E3%80%82">5531 0947</a></span>
     </div>
 
-    <header class="site-header" id="top">
-      <a class="brand" href="./" aria-label="Little Surprise home">
-        <span class="brand-mark" aria-hidden="true"><span class="oven">▰</span><span class="cake">●</span></span>
+    <header class="site-header ref-header" id="top">
+      <a class="brand ref-brand" href="./" aria-label="Little Surprise home">
+        <span class="brand-mark ref-brand-mark" aria-hidden="true"><span class="oven">▰</span><span class="cake">●</span></span>
         <span><strong>LITTLE<br />SURPRISE</strong><small>BAKE & DESSERT</small></span>
       </a>
-      <nav class="main-nav" aria-label="Main navigation">
+      <nav class="main-nav ref-nav" aria-label="Main navigation">
         <a class="active" href="./">首頁</a>
-        <a href="./products.html">產品頁</a>
-        <a href="#signature">Highlight</a>
-        <a href="#occasions">場合</a>
-        <a href="#order">關於 / 訂購</a>
+        <a href="./products.html">所有產品</a>
+        <a href="#popular">熱賣推介</a>
+        <a href="#reviews">客人好評</a>
+        <a href="#order">關於我們</a>
       </nav>
-      <div class="header-icons" aria-label="Quick actions">
+      <div class="header-icons ref-icons" aria-label="Quick actions">
         <a href="./products.html" aria-label="Search products">⌕</a>
-        <a href="mailto:littlesurprisehk0912@gmail.com" aria-label="Email Little Surprise">♡</a>
+        <a href="mailto:littlesurprisehk0912@gmail.com" aria-label="Email Little Surprise">♙</a>
         <a class="bag" href="https://wa.me/85255310947?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%83%B3%E6%9F%A5%E8%A9%A2%20Little%20Surprise%20%E7%94%9C%E5%93%81%E8%A8%82%E8%B3%BC%E3%80%82" aria-label="WhatsApp order">▢</a>
       </div>
     </header>
 
-    <main>
-      <section class="hero section-panel artistic-hero" aria-labelledby="hero-title">
-        <div class="hero-copy reveal">
-          <p class="eyebrow">Product theatre, not a full catalogue</p>
+    <main class="ref-home-shell">
+      <section class="ref-hero" aria-labelledby="hero-title">
+        <div class="ref-hero-copy reveal">
           <h1 id="hero-title">LITTLE<br />SURPRISE</h1>
-          <h2>用一個更藝術、更有畫面感的首頁，展示甜品的「小驚喜」。</h2>
-          <p>Front page 先做品牌氣氛、主打產品 highlight、用途與訂購入口；完整產品格仔、分類、詳情彈窗全部放到 dedicated product page。</p>
-          <div class="hero-actions">
-            <a class="button primary" href="./products.html">進入產品頁 <span>→</span></a>
-            <a class="button ghost" href="#signature">看首頁展示</a>
-          </div>
+          <h2>手工甜品・每日新鮮製作</h2>
+          <p>用心挑選食材，為你帶來每一口的小驚喜。</p>
+          <a class="ref-cta" href="https://wa.me/85255310947?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%83%B3%E6%9F%A5%E8%A9%A2%20Little%20Surprise%20%E7%94%9C%E5%93%81%E8%A8%82%E8%B3%BC%E3%80%82">立即選購 <span>→</span></a>
         </div>
-        <div class="hero-art collage-hero reveal" aria-label="Artistic dessert collage for homepage product highlights">
-          <img class="collage-main" src="./assets/hero-dessert-board.jpg" alt="Assorted French tart and cake desserts arranged on wooden boards" />
-          <img class="collage-card one" src="./assets/caramel-tart.jpg" alt="Caramel tart highlight" />
-          <img class="collage-card two" src="./assets/matcha-roll.jpg" alt="Matcha roll highlight" />
-          <div class="hero-stamp">Homepage = highlights<br /><small>Product page = full catalogue</small></div>
+        <div class="ref-hero-image reveal">
+          <img src="./assets/hero-dessert-board.jpg" alt="Little Surprise handmade dessert board" />
         </div>
       </section>
 
-      <section class="trust-strip" aria-label="Service highlights">
-        <article><span>◡</span><strong>手工製作</strong><small>全人手製作法式甜品</small></article>
-        <article><span>♨</span><strong>優質食材</strong><small>無人工色素資料來自公開片段</small></article>
-        <article><span>🛵</span><strong>自取 / 配送</strong><small>靈活安排・方便快捷</small></article>
-        <article><span>☏</span><strong>WhatsApp 訂購</strong><small>5531 0947 / DM 查詢</small></article>
+      <section class="ref-service-strip" aria-label="Service highlights">
+        <article><span class="line-icon">◒</span><div><strong>手工製作</strong><small>全人手製作法式甜品</small></div></article>
+        <article><span class="line-icon">♧</span><div><strong>優質食材</strong><small>精選食材・品質保證</small></div></article>
+        <article><span class="line-icon">▱</span><div><strong>自取 / 配送</strong><small>靈活取貨・方便快捷</small></div></article>
+        <article><span class="line-icon">☏</span><div><strong>WhatsApp 訂購</strong><small>5531 0947 / DM 查詢</small></div></article>
       </section>
 
-      <section class="signature-showcase" id="signature">
-        <div class="section-heading reveal">
-          <p class="eyebrow">首頁只做 Demonstration</p>
-          <h2>用三個畫面，示範 Little Surprise 有啲乜</h2>
-          <p>不再把 full product page 放在首頁。這裡只保留更 creative / demonstrative 的產品 highlight，讓客人想再入產品頁細看。</p>
+      <section class="ref-popular" id="popular">
+        <div class="section-heading ref-heading reveal">
+          <h2>人氣推薦</h2>
+          <p>每日新鮮製作，款款用心</p>
         </div>
-        <div class="showcase-grid reveal">
-          <article class="showcase-large">
-            <img src="./assets/detail-hero-tart.jpg" alt="Caramel chocolate tart detail highlight" />
-            <div><span>01 / Signature tart</span><h3>焦糖海鹽朱古力撻</h3><p>用大圖與 cutaway mood 帶出產品質感，而不是馬上列出全部產品。</p></div>
-          </article>
-          <article><img src="./assets/matcha-roll.jpg" alt="Matcha roll" /><span>02 / Roll cake</span><h3>抹茶紅豆忌廉卷</h3></article>
-          <article><img src="./assets/choco-cake.jpg" alt="Chocolate mousse cake" /><span>03 / Party cake</span><h3>海鹽朱古力慕絲蛋糕</h3></article>
+        <div class="ref-product-row reveal">
+          <article><img src="./assets/lemon-tart.jpg" alt="檸檬撻" /><h3>檸檬撻</h3><p>HK$32</p></article>
+          <article><img src="./assets/chocolate-tart.jpg" alt="朱古力布朗尼撻" /><h3>朱古力布朗尼撻</h3><p>HK$36</p></article>
+          <article><img src="./assets/caramel-tart.jpg" alt="焦糖海鹽朱古力撻" /><h3>焦糖海鹽朱古力撻</h3><p>HK$38</p></article>
+          <article><img src="./assets/matcha-roll.jpg" alt="抹茶紅豆忌廉卷" /><h3>抹茶紅豆忌廉卷</h3><p>HK$34</p></article>
         </div>
-        <a class="button outline centre" href="./products.html">去 dedicated product page</a>
+        <a class="ref-outline-button" href="./products.html">瀏覽所有產品</a>
       </section>
 
-      <section class="why" id="occasions">
-        <div class="section-heading reveal"><p class="eyebrow">Occasion-led browsing</p><h2>先讓客人感覺「適合我個場合」</h2></div>
-        <div class="occasion-grid reveal">
-          <article><span>01</span><h3>散水餅</h3><p>為同事準備易分享、精緻又有記憶點的 farewell desserts。</p></article>
-          <article><span>02</span><h3>升職餅</h3><p>以手工甜品慶祝 promotion，適合辦公室與小型聚會。</p></article>
-          <article><span>03</span><h3>到會甜品</h3><p>用首頁引導場合，再去產品頁篩選款式。</p></article>
-          <article><span>04</span><h3>Birthday / Party</h3><p>用 WhatsApp 確認日期、數量、自取或配送安排。</p></article>
-        </div>
-      </section>
-
-      <section class="order" id="order">
-        <div class="order-card reveal">
-          <h2>How to order</h2>
-          <ol><li>首頁看品牌與主打款。</li><li>到產品頁查看完整 catalogue。</li><li>點擊產品打開 detail popup。</li><li>WhatsApp 確認日期、數量、供應與配送。</li></ol>
-        </div>
-        <div class="order-card details reveal">
-          <h2>Order details</h2>
-          <p><strong>Minimum order:</strong> HK$250 + delivery, based on current Canva page.</p>
-          <p><strong>Contact:</strong> +852 5531 0947 · littlesurprisehk0912@gmail.com</p>
-          <p><strong>Address:</strong> 荃灣德士古道大廈B座 5樓 07室 F房</p>
-          <p class="note">Please verify product, delivery, licence and order details with the shop before real launch.</p>
-        </div>
+      <section class="ref-bottom-strip" id="order" aria-label="Ordering highlights">
+        <article><span>♨</span><div><strong>全人手製作法式甜品</strong><small>為你帶來每一個小驚喜</small></div></article>
+        <article><span>☏</span><div><strong>WhatsApp 訂購 / 查詢</strong><small>5531 0947</small></div></article>
+        <article><span>⌖</span><div><strong>工作室自取</strong><small>香港本地製作</small></div></article>
       </section>
     </main>
 
-    <footer class="site-footer">
+    <footer class="site-footer ref-footer">
       <div><strong>Little Surprise website concept</strong><p>Speculative website concept only — not affiliated with Little Surprise.</p></div>
-      <div><p>Public evidence used: Canva page details, public IG follower count noted in handoff, public search snippets. Product images are reference/demo crops and should be replaced with licensed/owner-approved assets before launch.</p></div>
+      <div><p>Product images are reference/demo crops and should be replaced with licensed/owner-approved assets before launch. Prices shown here are layout placeholders to match the supplied reference.</p></div>
     </footer>
 
     <a class="floating-wa" href="https://wa.me/85255310947?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%83%B3%E6%9F%A5%E8%A9%A2%20Little%20Surprise%20%E7%94%9C%E5%93%81%E8%A8%82%E8%B3%BC%E3%80%82" aria-label="WhatsApp Little Surprise enquiry">WhatsApp<br /><span>查詢</span></a>
