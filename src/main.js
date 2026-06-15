@@ -1,4 +1,7 @@
 const products = [
+  { name: 'OREO三文治', english: 'OREO SANDWICH', type: 'cheese-cake', img: '/assets/products/cheese-cake/oreo-sandwich.png', detail: '/assets/products/cheese-cake/oreo-sandwich.png', price: 'HK$35', priceNum: 35, flavors: ['chocolate', 'cheese'], availability: 'in-stock', hot: false, sortOrder: 160, copy: '芝士蛋糕系列：OREO三文治 / OREO SANDWICH。', badge: '', notes: ['芝士蛋糕系列', 'OREO SANDWICH', '按圖中餐牌更新'] },
+  { name: '焦糖白朱古力芝士', english: 'CARAMEL WHITE CHOCOLATE CHEESE', type: 'cheese-cake', img: '/assets/products/cheese-cake/caramel-white-chocolate-cheese.png', detail: '/assets/products/cheese-cake/caramel-white-chocolate-cheese.png', price: 'HK$35', priceNum: 35, flavors: ['caramel', 'chocolate', 'cheese'], availability: 'in-stock', hot: false, sortOrder: 159, copy: '芝士蛋糕系列：焦糖白朱古力芝士 / CARAMEL WHITE CHOCOLATE CHEESE。', badge: '', notes: ['芝士蛋糕系列', 'CARAMEL WHITE CHOCOLATE CHEESE', '按圖中餐牌更新'] },
+  { name: '紐約芝士', english: 'NEWYORK CHEESE', type: 'cheese-cake', img: '/assets/products/cheese-cake/new-york-cheese.png', detail: '/assets/products/cheese-cake/new-york-cheese.png', price: 'HK$35', priceNum: 35, flavors: ['cheese'], availability: 'in-stock', hot: false, sortOrder: 158, copy: '芝士蛋糕系列：紐約芝士 / NEWYORK CHEESE。', badge: '', notes: ['芝士蛋糕系列', 'NEWYORK CHEESE', '按圖中餐牌更新'] },
   { name: '花生白朱古力', english: 'PEANUTS WHITE CHOCOLATE', type: 'butter-cake', img: '/assets/products/butter-cake/peanuts-white-chocolate.png', detail: '/assets/products/butter-cake/peanuts-white-chocolate.png', price: 'HK$27', priceNum: 27, flavors: ['chocolate', 'fruit'], availability: 'in-stock', hot: false, sortOrder: 150, copy: '牛油蛋糕系列：花生白朱古力 / PEANUTS WHITE CHOCOLATE。', badge: '', notes: ['牛油蛋糕系列', 'PEANUTS WHITE CHOCOLATE', '按圖中餐牌更新'] },
   { name: '紅絲絨芝士', english: 'RED VELVET CHEESE', type: 'butter-cake', img: '/assets/products/butter-cake/red-velvet-cheese.png', detail: '/assets/products/butter-cake/red-velvet-cheese.png', price: 'HK$27', priceNum: 27, flavors: ['cheese'], availability: 'in-stock', hot: false, sortOrder: 149, copy: '牛油蛋糕系列：紅絲絨芝士 / RED VELVET CHEESE。', badge: '', notes: ['牛油蛋糕系列', 'RED VELVET CHEESE', '按圖中餐牌更新'] },
   { name: '泰式奶綠', english: 'THAI GREEN MILK TEA', type: 'butter-cake', img: '/assets/products/butter-cake/thai-green-milk-tea.png', detail: '/assets/products/butter-cake/thai-green-milk-tea.png', price: 'HK$27', priceNum: 27, flavors: ['matcha'], availability: 'in-stock', hot: false, sortOrder: 148, copy: '牛油蛋糕系列：泰式奶綠 / THAI GREEN MILK TEA。', badge: '', notes: ['牛油蛋糕系列', 'THAI GREEN MILK TEA', '按圖中餐牌更新'] },
@@ -58,7 +61,7 @@ const catalogueState = {
 };
 
 const labelMap = {
-  all: '全部產品', 'butter-cake': 'BUTTER CAKE 牛油蛋糕', tart: 'TART 撻', roll: 'ROLL 卷蛋', mousse: 'MOUSSE 慕絲', 'butter-mochicake': '麻糬牛油蛋糕',
+  all: '全部產品', 'cheese-cake': 'CHEESE CAKE 芝士蛋糕', 'butter-cake': 'BUTTER CAKE 牛油蛋糕', tart: 'TART 撻', roll: 'ROLL 卷蛋', mousse: 'MOUSSE 慕絲', 'butter-mochicake': '麻糬牛油蛋糕',
   '0-50': 'HK$0 - HK$50', '50-100': 'HK$50 - HK$100', '100-150': 'HK$100 - HK$150', '150+': 'HK$150 或以上',
   chocolate: '朱古力', matcha: '抹茶', cheese: '芝士', fruit: '水果 / 果仁', caramel: '焦糖 / 咖啡', 'earl-grey': '茶類', other: '其他',
   'in-stock': '現貨供應', preorder: '需預訂',
