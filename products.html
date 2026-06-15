@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products — Little Surprise Dessert Catalogue</title>
+    <meta name="description" content="Dedicated Little Surprise product catalogue page with category filters and product detail popup." />
+    <link rel="preload" as="image" href="./assets/catalogue-banner-desserts.jpg" />
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <div class="announcement">
+      <span>Dedicated Product Page・完整產品放在這裡</span>
+      <span>WhatsApp 訂購: <a href="https://wa.me/85255310947?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%83%B3%E6%9F%A5%E8%A9%A2%20Little%20Surprise%20%E7%94%9C%E5%93%81%E8%A8%82%E8%B3%BC%E3%80%82">5531 0947</a></span>
+    </div>
+
+    <header class="site-header" id="top">
+      <a class="brand" href="./" aria-label="Little Surprise home">
+        <span class="brand-mark" aria-hidden="true"><span class="oven">▰</span><span class="cake">●</span></span>
+        <span><strong>LITTLE<br />SURPRISE</strong><small>PRODUCT PAGE</small></span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="./">首頁</a>
+        <a class="active" href="./products.html">所有產品</a>
+        <a href="#catalogue">分類</a>
+        <a href="#catalogue">點產品睇詳情</a>
+        <a href="#orderHelp">訂購</a>
+      </nav>
+      <div class="header-icons" aria-label="Quick actions">
+        <a href="#catalogue" aria-label="Search products">⌕</a>
+        <a href="mailto:littlesurprisehk0912@gmail.com" aria-label="Email Little Surprise">♡</a>
+        <a class="bag" href="https://wa.me/85255310947?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%83%B3%E6%9F%A5%E8%A9%A2%20Little%20Surprise%20%E7%94%9C%E5%93%81%E8%A8%82%E8%B3%BC%E3%80%82" aria-label="WhatsApp order">▢</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="catalogue-page-hero section-panel">
+        <div class="reveal">
+          <p class="eyebrow">PRODUCT CATALOGUE</p>
+          <h1>所有產品集中喺呢一頁</h1>
+          <p>Reference 返你俾過的 catalogue page：左邊分類、右邊產品格仔。撳落任何產品，就彈出 product detail 畫面。</p>
+        </div>
+        <img src="./assets/catalogue-banner-desserts.jpg" alt="Catalogue banner dessert arrangement" />
+      </section>
+
+      <section class="catalogue-band catalogue-page" id="catalogue">
+        <div class="shop-layout reveal">
+          <aside class="filters" aria-label="Catalogue filters">
+            <h3>分類 <small>CATEGORY</small></h3>
+            <button class="filter active" data-filter="all">全部 All</button>
+            <button class="filter" data-filter="tart">TART 撻類</button>
+            <button class="filter" data-filter="mousse">MOUSSE 慕絲蛋糕</button>
+            <button class="filter" data-filter="roll">ROLL CAKE 長條卷蛋</button>
+            <button class="filter" data-filter="cake">CAKE 蛋糕</button>
+            <button class="filter" data-filter="seasonal">SEASONAL 季節限定</button>
+            <div class="filter-group"><strong>價格範圍</strong><label><input type="checkbox" /> 請 WhatsApp 查詢</label><label><input type="checkbox" /> HK$250 最低消費</label></div>
+            <div class="filter-group"><strong>供應狀態</strong><label><input type="checkbox" /> 現貨供應</label><label><input type="checkbox" /> 需預訂</label></div>
+          </aside>
+          <div class="products-area">
+            <div class="selected-row"><span>已選條件: <b>熱門 🔥</b></span><label>排序方式: <select><option>最新上架</option><option>熱門推介</option></select></label></div>
+            <div class="catalogue-grid" id="productGrid"></div>
+            <button class="button outline load-more" type="button">載入更多產品⌄</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="order product-order-help" id="orderHelp">
+        <div class="order-card reveal">
+          <h2>Product popup flow</h2>
+          <ol><li>客人喺 catalogue 撳產品。</li><li>彈出 product detail 畫面。</li><li>可睇大圖、產品描述、數量。</li><li>按 WhatsApp 查詢。</li></ol>
+        </div>
+        <div class="order-card details reveal">
+          <h2>Demo note</h2>
+          <p>產品相和內容仍是 concept/reference crop。正式 launch 前應換成店主授權圖片、價錢、尺寸、庫存和訂購規則。</p>
+          <p class="note">This page is intentionally the full product page. Homepage should stay artistic and curated.</p>
+        </div>
+      </section>
+    </main>
+
+    <dialog class="product-modal" id="productModal" aria-labelledby="modalProductTitle">
+      <button class="modal-close" type="button" data-close-modal aria-label="Close product detail">×</button>
+      <div class="modal-gallery">
+        <img class="main-detail" data-modal-img src="./assets/detail-hero-tart.jpg" alt="Product detail image" />
+        <div class="thumbs"><button type="button">‹</button><img src="./assets/detail-hero-tart.jpg" alt="Tart thumbnail" /><img src="./assets/detail-cutaway.jpg" alt="Cutaway thumbnail" /><img src="./assets/chocolate-tart.jpg" alt="Chocolate tart thumbnail" /><button type="button">›</button></div>
+      </div>
+      <div class="detail-info modal-info">
+        <p class="breadcrumb" data-modal-breadcrumb>首頁 › Product Catalogue › 焦糖海鹽朱古力撻</p>
+        <h2 id="modalProductTitle" data-modal-title>焦糖海鹽朱古力撻</h2>
+        <p class="detail-price">價格請 WhatsApp 確認</p>
+        <p data-modal-copy>點擊產品後彈出的詳情內容。</p>
+        <ul class="icon-list" data-modal-notes><li>手工製作・新鮮製作</li><li>實際口味、尺寸與供應請向店舖確認</li></ul>
+        <div class="qty"><span>數量</span><button type="button" data-qty="minus">−</button><output id="qty">1</output><button type="button" data-qty="plus">＋</button></div>
+        <a class="button primary wide" data-modal-wa href="https://wa.me/85255310947">WhatsApp 查詢此產品</a>
+      </div>
+    </dialog>
+
+    <footer class="site-footer">
+      <div><strong>Little Surprise product catalogue concept</strong><p>Speculative website concept only — not affiliated with Little Surprise.</p></div>
+      <div><p>Public evidence used: Canva page details, public IG follower count noted in handoff, public search snippets. Product images are reference/demo crops and should be replaced with licensed/owner-approved assets before launch.</p></div>
+    </footer>
+
+    <a class="floating-wa" href="https://wa.me/85255310947?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%83%B3%E6%9F%A5%E8%A9%A2%20Little%20Surprise%20%E7%94%9C%E5%93%81%E8%A8%82%E8%B3%BC%E3%80%82" aria-label="WhatsApp Little Surprise enquiry">WhatsApp<br /><span>查詢</span></a>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

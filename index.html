@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Little Surprise — Handmade Dessert Ordering Demo</title>
-    <meta name="description" content="Speculative Little Surprise dessert catalogue and WhatsApp ordering website demo." />
-    <link rel="preload" as="image" href="/assets/hero-dessert-board.jpg" />
+    <meta name="description" content="Speculative Little Surprise artistic homepage with dedicated product catalogue page." />
+    <link rel="preload" as="image" href="./assets/hero-dessert-board.jpg" />
     <link rel="stylesheet" href="/src/styles.css" />
   </head>
   <body>
@@ -15,41 +15,41 @@
     </div>
 
     <header class="site-header" id="top">
-      <a class="brand" href="#top" aria-label="Little Surprise home">
-        <span class="brand-mark" aria-hidden="true">
-          <span class="oven">▰</span><span class="cake">●</span>
-        </span>
+      <a class="brand" href="./" aria-label="Little Surprise home">
+        <span class="brand-mark" aria-hidden="true"><span class="oven">▰</span><span class="cake">●</span></span>
         <span><strong>LITTLE<br />SURPRISE</strong><small>BAKE & DESSERT</small></span>
       </a>
       <nav class="main-nav" aria-label="Main navigation">
-        <a class="active" href="#top">首頁</a>
-        <a href="#catalogue">所有產品</a>
-        <a href="#popular">熱賣推介</a>
-        <a href="#occasions">客人好評</a>
-        <a href="#order">關於我們</a>
+        <a class="active" href="./">首頁</a>
+        <a href="./products.html">產品頁</a>
+        <a href="#signature">Highlight</a>
+        <a href="#occasions">場合</a>
+        <a href="#order">關於 / 訂購</a>
       </nav>
       <div class="header-icons" aria-label="Quick actions">
-        <a href="#catalogue" aria-label="Search products">⌕</a>
+        <a href="./products.html" aria-label="Search products">⌕</a>
         <a href="mailto:littlesurprisehk0912@gmail.com" aria-label="Email Little Surprise">♡</a>
         <a class="bag" href="https://wa.me/85255310947?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%83%B3%E6%9F%A5%E8%A9%A2%20Little%20Surprise%20%E7%94%9C%E5%93%81%E8%A8%82%E8%B3%BC%E3%80%82" aria-label="WhatsApp order">▢</a>
       </div>
     </header>
 
     <main>
-      <section class="hero section-panel" aria-labelledby="hero-title">
+      <section class="hero section-panel artistic-hero" aria-labelledby="hero-title">
         <div class="hero-copy reveal">
-          <p class="eyebrow">Tsuen Wan handmade desserts</p>
+          <p class="eyebrow">Product theatre, not a full catalogue</p>
           <h1 id="hero-title">LITTLE<br />SURPRISE</h1>
-          <h2>手工甜品・每日新鮮製作</h2>
-          <p>用心挑選食材，為你帶來每一口小驚喜。適合散水餅、升職餅、到會甜品與派對分享。</p>
+          <h2>用一個更藝術、更有畫面感的首頁，展示甜品的「小驚喜」。</h2>
+          <p>Front page 先做品牌氣氛、主打產品 highlight、用途與訂購入口；完整產品格仔、分類、詳情彈窗全部放到 dedicated product page。</p>
           <div class="hero-actions">
-            <a class="button primary" href="https://wa.me/85255310947?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%83%B3%E6%9F%A5%E8%A9%A2%20Little%20Surprise%20%E7%94%9C%E5%93%81%E8%A8%82%E8%B3%BC%E3%80%82">立即查詢 <span>→</span></a>
-            <a class="button ghost" href="#catalogue">瀏覽產品</a>
+            <a class="button primary" href="./products.html">進入產品頁 <span>→</span></a>
+            <a class="button ghost" href="#signature">看首頁展示</a>
           </div>
         </div>
-        <div class="hero-art reveal" aria-label="Dessert board inspired by the provided homepage reference">
-          <img src="/assets/hero-dessert-board.jpg" alt="Assorted French tart and cake desserts arranged on wooden boards" />
-          <div class="hero-stamp">21K+ IG followers<br /><small>public profile evidence</small></div>
+        <div class="hero-art collage-hero reveal" aria-label="Artistic dessert collage for homepage product highlights">
+          <img class="collage-main" src="./assets/hero-dessert-board.jpg" alt="Assorted French tart and cake desserts arranged on wooden boards" />
+          <img class="collage-card one" src="./assets/caramel-tart.jpg" alt="Caramel tart highlight" />
+          <img class="collage-card two" src="./assets/matcha-roll.jpg" alt="Matcha roll highlight" />
+          <div class="hero-stamp">Homepage = highlights<br /><small>Product page = full catalogue</small></div>
         </div>
       </section>
 
@@ -60,96 +60,37 @@
         <article><span>☏</span><strong>WhatsApp 訂購</strong><small>5531 0947 / DM 查詢</small></article>
       </section>
 
-      <section class="popular" id="popular">
+      <section class="signature-showcase" id="signature">
         <div class="section-heading reveal">
-          <p class="eyebrow">人氣推薦</p>
-          <h2>每日新鮮製作，款款用心</h2>
-          <p>以下展示為網站概念與參考截圖裁切示意；正式上線前應改用店主授權產品圖。</p>
+          <p class="eyebrow">首頁只做 Demonstration</p>
+          <h2>用三個畫面，示範 Little Surprise 有啲乜</h2>
+          <p>不再把 full product page 放在首頁。這裡只保留更 creative / demonstrative 的產品 highlight，讓客人想再入產品頁細看。</p>
         </div>
-        <div class="popular-grid reveal">
-          <article class="product-card"><img src="/assets/lemon-tart.jpg" alt="Lemon tart reference crop" /><h3>檸檬撻</h3><p class="price">價格請 WhatsApp 確認</p></article>
-          <article class="product-card"><img src="/assets/chocolate-tart.jpg" alt="Chocolate tart reference crop" /><h3>朱古力布朗尼撻</h3><p class="price">價格請 WhatsApp 確認</p></article>
-          <article class="product-card"><img src="/assets/caramel-tart.jpg" alt="Caramel chocolate tart reference crop" /><h3>焦糖海鹽朱古力撻</h3><p class="price">價格請 WhatsApp 確認</p></article>
-          <article class="product-card"><img src="/assets/matcha-roll.jpg" alt="Matcha red bean roll reference crop" /><h3>抹茶紅豆忌廉卷</h3><p class="price">價格請 WhatsApp 確認</p></article>
+        <div class="showcase-grid reveal">
+          <article class="showcase-large">
+            <img src="./assets/detail-hero-tart.jpg" alt="Caramel chocolate tart detail highlight" />
+            <div><span>01 / Signature tart</span><h3>焦糖海鹽朱古力撻</h3><p>用大圖與 cutaway mood 帶出產品質感，而不是馬上列出全部產品。</p></div>
+          </article>
+          <article><img src="./assets/matcha-roll.jpg" alt="Matcha roll" /><span>02 / Roll cake</span><h3>抹茶紅豆忌廉卷</h3></article>
+          <article><img src="./assets/choco-cake.jpg" alt="Chocolate mousse cake" /><span>03 / Party cake</span><h3>海鹽朱古力慕絲蛋糕</h3></article>
         </div>
-        <a class="button outline centre" href="#catalogue">瀏覽所有產品</a>
-      </section>
-
-      <section class="catalogue-band" id="catalogue">
-        <div class="catalogue-hero reveal">
-          <div>
-            <h2>所有產品 <span>PRODUCT CATALOGUE</span></h2>
-            <p>多款手工甜品，每日新鮮製作。以參考圖的 catalogue layout 改造成可查詢分類。</p>
-          </div>
-          <img src="/assets/catalogue-banner-desserts.jpg" alt="Catalogue banner dessert arrangement" />
-        </div>
-
-        <div class="shop-layout reveal">
-          <aside class="filters" aria-label="Catalogue filters">
-            <h3>分類 <small>CATEGORY</small></h3>
-            <button class="filter active" data-filter="all">全部 All</button>
-            <button class="filter" data-filter="tart">TART 撻類</button>
-            <button class="filter" data-filter="mousse">MOUSSE 慕絲蛋糕</button>
-            <button class="filter" data-filter="roll">ROLL CAKE 長條卷蛋</button>
-            <button class="filter" data-filter="cake">CAKE 蛋糕</button>
-            <button class="filter" data-filter="seasonal">SEASONAL 季節限定</button>
-            <div class="filter-group"><strong>價格範圍</strong><label><input type="checkbox" /> 請 WhatsApp 查詢</label><label><input type="checkbox" /> HK$250 最低消費</label></div>
-            <div class="filter-group"><strong>供應狀態</strong><label><input type="checkbox" /> 現貨供應</label><label><input type="checkbox" /> 需預訂</label></div>
-          </aside>
-          <div class="products-area">
-            <div class="selected-row"><span>已選條件: <b>熱門 🔥</b></span><label>排序方式: <select><option>最新上架</option><option>熱門推介</option></select></label></div>
-            <div class="catalogue-grid" id="productGrid"></div>
-            <button class="button outline load-more" type="button">載入更多產品⌄</button>
-          </div>
-        </div>
-      </section>
-
-      <section class="detail" id="detail">
-        <div class="detail-gallery reveal">
-          <img class="main-detail" src="/assets/detail-hero-tart.jpg" alt="Caramel chocolate tart product detail reference crop" />
-          <div class="thumbs"><button>‹</button><img src="/assets/detail-hero-tart.jpg" alt="Tart thumbnail" /><img src="/assets/detail-cutaway.jpg" alt="Cutaway thumbnail" /><img src="/assets/chocolate-tart.jpg" alt="Chocolate tart thumbnail" /><button>›</button></div>
-        </div>
-        <div class="detail-info reveal">
-          <p class="breadcrumb">首頁 › 所有產品 › 焦糖海鹽朱古力撻</p>
-          <h2>焦糖海鹽朱古力撻</h2>
-          <p class="detail-price">價格請 WhatsApp 確認</p>
-          <p>參考產品詳情頁的雙欄排版：大圖 gallery、右方產品資料、數量控制、主要 CTA 與次要 CTA。內容保留為 demo，不冒認正式價錢或庫存。</p>
-          <ul class="icon-list"><li>手工製作・新鮮製作</li><li>優質食材・品質保證</li><li>建議冷藏保存・享用前 10 分鐘取出</li><li>實際口味、尺寸與供應請向店舖確認</li></ul>
-          <div class="qty"><span>數量</span><button type="button" data-qty="minus">−</button><output id="qty">1</output><button type="button" data-qty="plus">＋</button></div>
-          <a class="button primary wide" href="https://wa.me/85255310947?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%83%B3%E6%9F%A5%E8%A9%A2%20%E7%84%A6%E7%B3%96%E6%B5%B7%E9%B9%BD%E6%9C%B1%E5%8F%A4%E5%8A%9B%E6%92%BB%20%E8%A8%82%E8%B3%BC%E3%80%82">加入查詢清單</a>
-          <a class="button ghost wide" href="https://wa.me/85255310947?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%83%B3%E5%8D%B3%E6%99%82%E6%9F%A5%E8%A9%A2%20Little%20Surprise%20%E7%94%9C%E5%93%81%E8%A8%82%E8%B3%BC%E3%80%82">立即查詢</a>
-        </div>
-      </section>
-
-      <section class="trust-strip detail-strip" aria-label="Order support">
-        <article><span>🛵</span><strong>自取 / 配送</strong><small>靈活安排・方便快捷</small></article>
-        <article><span>☏</span><strong>WhatsApp 訂購</strong><small>5531 0947 / DM 查詢</small></article>
-        <article><span>⌖</span><strong>工作室地址</strong><small>荃灣本地製作・安心之選</small></article>
-      </section>
-
-      <section class="product-tabs reveal" aria-label="Product description tabs">
-        <div class="tab-copy">
-          <div class="tabs"><button class="active">產品描述</button><button>食材</button></div>
-          <p>濃郁朱古力慕絲配上自家製焦糖醬，微鹹海鹽提升層次。此段為概念文案，正式網站應由店主確認產品資料。</p>
-          <div class="mini-icons"><span>朱古力慕絲</span><span>自家製焦糖醬</span><span>海鹽點綴</span><span>可可撻底</span></div>
-        </div>
-        <img src="/assets/detail-cutaway.jpg" alt="Cutaway tart reference crop" />
+        <a class="button outline centre" href="./products.html">去 dedicated product page</a>
       </section>
 
       <section class="why" id="occasions">
-        <div class="section-heading reveal"><p class="eyebrow">Why choose Little Surprise</p><h2>適合公司、派對與特別時刻</h2></div>
+        <div class="section-heading reveal"><p class="eyebrow">Occasion-led browsing</p><h2>先讓客人感覺「適合我個場合」</h2></div>
         <div class="occasion-grid reveal">
           <article><span>01</span><h3>散水餅</h3><p>為同事準備易分享、精緻又有記憶點的 farewell desserts。</p></article>
           <article><span>02</span><h3>升職餅</h3><p>以手工甜品慶祝 promotion，適合辦公室與小型聚會。</p></article>
-          <article><span>03</span><h3>到會甜品</h3><p>可先查詢數量、日期、自取或配送安排，避免即場來回溝通。</p></article>
-          <article><span>04</span><h3>Birthday / Party</h3><p>用 catalogue 讓客人先揀類型，再 WhatsApp 確認細節。</p></article>
+          <article><span>03</span><h3>到會甜品</h3><p>用首頁引導場合，再去產品頁篩選款式。</p></article>
+          <article><span>04</span><h3>Birthday / Party</h3><p>用 WhatsApp 確認日期、數量、自取或配送安排。</p></article>
         </div>
       </section>
 
       <section class="order" id="order">
         <div class="order-card reveal">
           <h2>How to order</h2>
-          <ol><li>選擇甜品類型、數量與日期。</li><li>WhatsApp / Signal / Call 發送需求。</li><li>確認供應、付款方式與最低消費。</li><li>安排自取或配送。</li></ol>
+          <ol><li>首頁看品牌與主打款。</li><li>到產品頁查看完整 catalogue。</li><li>點擊產品打開 detail popup。</li><li>WhatsApp 確認日期、數量、供應與配送。</li></ol>
         </div>
         <div class="order-card details reveal">
           <h2>Order details</h2>
@@ -158,14 +99,6 @@
           <p><strong>Address:</strong> 荃灣德士古道大廈B座 5樓 07室 F房</p>
           <p class="note">Please verify product, delivery, licence and order details with the shop before real launch.</p>
         </div>
-      </section>
-
-      <section class="faq reveal" id="faq">
-        <h2>FAQ</h2>
-        <details open><summary>How early should I order?</summary><p>Availability is not shown publicly in this demo. Please confirm lead time directly on WhatsApp.</p></details>
-        <details><summary>Can I order for office farewell / promotion?</summary><p>Public snippets mention 散水餅 and 升職餅. Send date, quantity and occasion to confirm options.</p></details>
-        <details><summary>Is there a minimum order?</summary><p>The Canva page lists 最低消費 HK$250 (+ delivery). Final terms should be confirmed by the shop.</p></details>
-        <details><summary>Delivery or pickup?</summary><p>The demo supports both as enquiry choices. The exact arrangement should be confirmed by WhatsApp.</p></details>
       </section>
     </main>
 
