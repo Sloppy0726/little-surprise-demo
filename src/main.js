@@ -49,6 +49,18 @@ const products = [
 
 const waBase = 'https://wa.me/85255310947?text=';
 const encode = (name) => encodeURIComponent(`你好，想查詢 Little Surprise ${name} 訂購資料。`);
+const cartState = [];
+const productLabel = (p) => `${p.name} / ${p.english}`;
+const buildCartMessage = () => [
+  '你好，想向 Little Surprise 查詢／預訂以下產品：',
+  '',
+  ...cartState.map((item, index) => `${index + 1}. ${productLabel(item.product)} x ${item.qty} — ${item.product.price}`),
+  '',
+  '自取／送貨日期時間：',
+  '姓名：',
+  '聯絡電話：',
+  '備註：'
+].join('\n');
 const assetPath = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`;
 
 const catalogueState = {
@@ -91,17 +103,21 @@ function updateFilterCounts() {
 }
 
 function productCard(p) {
+  const inCart = cartState.some((item) => item.product.img === p.img);
   return `
-    <article class="catalogue-card product-open" data-type="${p.type}" data-product="${p.img}" tabindex="0" role="button" aria-label="查看 ${p.name} 詳情">
-      <div class="image-wrap">
-        ${p.badge ? `<span class="badge">${p.badge}</span>` : ''}
-        <img src="${assetPath(p.img)}" alt="${p.name} demo product image" />
+    <article class="catalogue-card" data-type="${p.type}" data-product="${p.img}">
+      <div class="product-open" data-product="${p.img}" tabindex="0" role="button" aria-label="查看 ${p.name} 詳情">
+        <div class="image-wrap">
+          ${p.badge ? `<span class="badge">${p.badge}</span>` : ''}
+          <img src="${assetPath(p.img)}" alt="${p.name} demo product image" />
+        </div>
+        <div class="card-copy">
+          <h3>${p.name}</h3>
+          <p>${p.copy}</p>
+          <div class="card-line"><span class="ask-price">${p.price}</span><span class="card-detail" aria-hidden="true">▢</span></div>
+        </div>
       </div>
-      <div class="card-copy">
-        <h3>${p.name}</h3>
-        <p>${p.copy}</p>
-        <div class="card-line"><span class="ask-price">${p.price}</span><span class="card-detail" aria-hidden="true">▢</span></div>
-      </div>
+      <button class="cart-add" type="button" data-add-cart="${p.img}">${inCart ? '已加入・再加一件' : '加入購物車'}</button>
     </article>
   `;
 }
@@ -171,6 +187,7 @@ function openProduct(productKey) {
   modal.querySelector('[data-modal-copy]').textContent = `${p.copy} 點擊產品後彈出大圖、資料、數量與查詢 CTA。`;
   modal.querySelector('[data-modal-notes]').innerHTML = p.notes.map((note) => `<li>${note}</li>`).join('');
   modal.querySelector('[data-modal-wa]').href = `${waBase}${encode(p.name)}`;
+  modal.querySelector('[data-modal-add]')?.setAttribute('data-modal-add', p.img);
   modal.showModal();
   document.body.classList.add('modal-open');
 }
@@ -182,6 +199,56 @@ function closeProduct() {
   document.body.classList.remove('modal-open');
 }
 
+function renderCart() {
+  const list = document.querySelector('#cartList');
+  const empty = document.querySelector('#cartEmpty');
+  const countEls = document.querySelectorAll('[data-cart-count]');
+  const send = document.querySelector('#cartWhatsapp');
+  const clear = document.querySelector('#cartClear');
+  const headerBag = document.querySelector('.catalogue-actions .bag span');
+  const totalQty = cartState.reduce((sum, item) => sum + item.qty, 0);
+  countEls.forEach((el) => { el.textContent = `${totalQty} 件產品`; });
+  if (headerBag) headerBag.textContent = totalQty;
+  if (!list || !empty || !send) return;
+  empty.hidden = cartState.length > 0;
+  list.innerHTML = cartState.map((item) => `
+    <article class="cart-item" data-cart-item="${item.product.img}">
+      <img src="${assetPath(item.product.img)}" alt="" />
+      <div class="cart-item-copy"><strong>${item.product.name}</strong><span>${item.product.english}</span><small>${item.product.price}</small></div>
+      <div class="cart-qty" aria-label="數量 ${item.qty}">
+        <button type="button" data-cart-delta="-1" data-cart-product="${item.product.img}" aria-label="減少 ${item.product.name}">−</button>
+        <output>${item.qty}</output>
+        <button type="button" data-cart-delta="1" data-cart-product="${item.product.img}" aria-label="增加 ${item.product.name}">＋</button>
+      </div>
+      <button class="cart-remove" type="button" data-cart-remove="${item.product.img}" aria-label="移除 ${item.product.name}">×</button>
+    </article>
+  `).join('');
+  send.href = cartState.length ? `${waBase}${encodeURIComponent(buildCartMessage())}` : '#catalogue';
+  send.classList.toggle('disabled', cartState.length === 0);
+  send.setAttribute('aria-disabled', String(cartState.length === 0));
+  if (clear) clear.hidden = cartState.length === 0;
+}
+
+function addToCart(productKey, quantity = 1) {
+  const product = products.find((item) => item.img === productKey || item.name === productKey);
+  if (!product) return;
+  const existing = cartState.find((item) => item.product.img === product.img);
+  if (existing) existing.qty = Math.min(99, existing.qty + quantity);
+  else cartState.push({ product, qty: Math.max(1, quantity) });
+  renderProducts();
+  renderCart();
+}
+
+function changeCartQty(productKey, delta) {
+  const item = cartState.find((entry) => entry.product.img === productKey);
+  if (!item) return;
+  item.qty += delta;
+  if (item.qty <= 0) cartState.splice(cartState.indexOf(item), 1);
+  renderProducts();
+  renderCart();
+}
+
+
 function bindProductCards() {
   document.querySelectorAll('.product-open').forEach((card) => {
     card.addEventListener('click', () => openProduct(card.dataset.product));
@@ -190,6 +257,13 @@ function bindProductCards() {
         event.preventDefault();
         openProduct(card.dataset.product);
       }
+    });
+  });
+  document.querySelectorAll('[data-add-cart]').forEach((button) => {
+    button.addEventListener('click', (event) => {
+      event.stopPropagation();
+      addToCart(button.dataset.addCart);
+      document.querySelector('#shoppingCart')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
 }
@@ -202,6 +276,7 @@ function syncFilterButtons() {
 
 updateFilterCounts();
 renderProducts();
+renderCart();
 
 document.querySelectorAll('.filter').forEach((button) => {
   button.addEventListener('click', () => {
@@ -266,12 +341,33 @@ window.matchMedia('(min-width: 861px)').addEventListener('change', (event) => {
 });
 
 document.querySelectorAll('[data-close-modal]').forEach((button) => button.addEventListener('click', closeProduct));
+document.querySelector('[data-modal-add]')?.addEventListener('click', (event) => {
+  const key = event.currentTarget.dataset.modalAdd;
+  addToCart(key, qty);
+  closeProduct();
+  document.querySelector('#shoppingCart')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
 document.querySelector('#productModal')?.addEventListener('click', (event) => {
   if (event.target.id === 'productModal') closeProduct();
 });
 
 let qty = 1;
 const qtyOutput = document.querySelector('#qty');
+document.querySelector('#cartList')?.addEventListener('click', (event) => {
+  const deltaButton = event.target.closest('[data-cart-delta]');
+  if (deltaButton) changeCartQty(deltaButton.dataset.cartProduct, Number(deltaButton.dataset.cartDelta));
+  const removeButton = event.target.closest('[data-cart-remove]');
+  if (removeButton) changeCartQty(removeButton.dataset.cartRemove, -999);
+});
+document.querySelector('#cartClear')?.addEventListener('click', () => {
+  cartState.splice(0, cartState.length);
+  renderProducts();
+  renderCart();
+});
+document.querySelector('#cartWhatsapp')?.addEventListener('click', (event) => {
+  if (!cartState.length) event.preventDefault();
+});
+
 document.querySelectorAll('[data-qty]').forEach((button) => {
   button.addEventListener('click', () => {
     qty += button.dataset.qty === 'plus' ? 1 : -1;
@@ -299,4 +395,6 @@ window.__littleSurpriseDemo = {
   modal: Boolean(document.querySelector('#productModal')),
   catalogueState,
   getFilteredProducts,
+  cartState,
+  buildCartMessage,
 };

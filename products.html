@@ -30,7 +30,7 @@
       <div class="catalogue-actions" aria-label="Quick actions">
         <a href="#catalogue" aria-label="Search products">⌕</a>
         <a href="mailto:littlesurprisehk0912@gmail.com" aria-label="Account enquiry">♙</a>
-        <a class="bag" href="https://wa.me/85255310947?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%83%B3%E6%9F%A5%E8%A9%A2%20Little%20Surprise%20%E7%94%9C%E5%93%81%E8%A8%82%E8%B3%BC%E3%80%82" aria-label="WhatsApp order">▢<span>2</span></a>
+        <a class="bag" href="#shoppingCart" aria-label="Open shopping cart">▢<span>0</span></a>
       </div>
     </header>
 
@@ -101,6 +101,23 @@
         </div>
       </section>
 
+      <section class="shopping-cart-panel" id="shoppingCart" aria-label="Shopping cart export to WhatsApp">
+        <div class="cart-panel-head">
+          <div>
+            <p>EXPORT TO WHATSAPP</p>
+            <h2>購物車 Shopping Cart</h2>
+            <span>先加入想要的產品，再一鍵匯出成 WhatsApp 訊息。暫時不會網上付款或直接落單。</span>
+          </div>
+          <strong data-cart-count>0 件產品</strong>
+        </div>
+        <p class="cart-empty" id="cartEmpty">購物車暫時未有產品。請在產品卡按「加入購物車」。</p>
+        <div class="cart-list" id="cartList" aria-live="polite"></div>
+        <div class="cart-actions">
+          <a class="button primary disabled" id="cartWhatsapp" href="#catalogue" target="_blank" rel="noreferrer" aria-disabled="true">Send to WhatsApp</a>
+          <button class="button outline" id="cartClear" type="button" hidden>清空購物車</button>
+        </div>
+      </section>
+
       <section class="catalogue-ref-footer-strip" id="orderHelp" aria-label="Ordering details">
         <article><span>♨</span><div><strong>全人手製作・法式甜品</strong><small>為你帶來每一個小驚喜</small></div></article>
         <article><span>☏</span><div><strong>WhatsApp 訂購 / 查詢</strong><small>5531 0947</small></div></article>
@@ -121,7 +138,8 @@
         <p data-modal-copy>點擊產品後彈出的詳情內容。</p>
         <ul class="icon-list" data-modal-notes><li>手工製作・新鮮製作</li><li>實際口味、尺寸與供應請向店舖確認</li></ul>
         <div class="qty"><span>數量</span><button type="button" data-qty="minus">−</button><output id="qty">1</output><button type="button" data-qty="plus">＋</button></div>
-        <a class="button primary wide" data-modal-wa href="https://wa.me/85255310947">WhatsApp 查詢此產品</a>
+        <button class="button primary wide" type="button" data-modal-add>加入購物車</button>
+        <a class="button ghost wide" data-modal-wa href="https://wa.me/85255310947">WhatsApp 查詢此產品</a>
       </div>
     </dialog>
 
