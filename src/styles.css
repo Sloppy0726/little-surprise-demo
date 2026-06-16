@@ -515,6 +515,7 @@ body.modal-open { overflow: hidden; }
   background: #fff;
   color: var(--ref-ink);
 }
+.catalogue-reference.reference-home { background: #fbf7ef; }
 .catalogue-topbar {
   height: 48px;
   display: grid;
