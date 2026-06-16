@@ -432,7 +432,8 @@ body.modal-open { overflow: hidden; }
 .ref-product-row img {
   width: 100%;
   aspect-ratio: 1.06 / 1;
-  object-fit: cover;
+  object-fit: contain;
+  background: #fff7ee;
   border-radius: 7px;
   box-shadow: 0 8px 20px rgba(47, 32, 24, .1);
 }
