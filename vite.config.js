@@ -9,6 +9,8 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         products: resolve(__dirname, 'products.html'),
+        reviews: resolve(__dirname, 'reviews.html'),
+        about: resolve(__dirname, 'about.html'),
       },
     },
   },
