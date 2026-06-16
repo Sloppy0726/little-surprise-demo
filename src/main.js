@@ -249,6 +249,22 @@ document.querySelector('.ref-load-more')?.addEventListener('click', () => {
   renderProducts();
 });
 
+const filterToggle = document.querySelector('[data-filter-toggle]');
+const filterBackdrop = document.querySelector('.filter-backdrop');
+function setFilterSidebar(open) {
+  document.body.classList.toggle('filter-sidebar-open', open);
+  filterToggle?.setAttribute('aria-expanded', String(open));
+  if (filterBackdrop) filterBackdrop.hidden = !open;
+}
+filterToggle?.addEventListener('click', () => setFilterSidebar(!document.body.classList.contains('filter-sidebar-open')));
+document.querySelectorAll('[data-filter-close]').forEach((button) => button.addEventListener('click', () => setFilterSidebar(false)));
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') setFilterSidebar(false);
+});
+window.matchMedia('(min-width: 861px)').addEventListener('change', (event) => {
+  if (event.matches) setFilterSidebar(false);
+});
+
 document.querySelectorAll('[data-close-modal]').forEach((button) => button.addEventListener('click', closeProduct));
 document.querySelector('#productModal')?.addEventListener('click', (event) => {
   if (event.target.id === 'productModal') closeProduct();

@@ -45,7 +45,15 @@
       </section>
 
       <section class="catalogue-ref-grid" id="catalogue">
-        <aside class="ref-filter-panel" aria-label="Catalogue filters">
+        <button class="mobile-filter-toggle" type="button" data-filter-toggle aria-controls="catalogueFilters" aria-expanded="false">
+          <span>篩選產品</span><strong>FILTER</strong>
+        </button>
+        <div class="filter-backdrop" data-filter-close hidden></div>
+        <aside class="ref-filter-panel" id="catalogueFilters" aria-label="Catalogue filters">
+          <div class="mobile-filter-head">
+            <div><strong>篩選產品</strong><small>FILTER PRODUCTS</small></div>
+            <button type="button" data-filter-close aria-label="Close filters">×</button>
+          </div>
           <div class="ref-filter-section categories">
             <h3>分類 <small>CATEGORY</small></h3>
             <button class="filter active" data-filter="all"><span>✨ ALL 全部產品</span><em>46</em></button>
