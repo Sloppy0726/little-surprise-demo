@@ -33,7 +33,7 @@ img { max-width: 100%; display: block; }
 .brand { display: flex; align-items: center; gap: 14px; min-width: 230px; }
 .brand strong { font-size: 20px; line-height: .9; letter-spacing: .06em; }
 .brand small { display: block; color: var(--tan); font-size: 10px; letter-spacing: .26em; margin-top: 5px; }
-.brand-logo { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; display: block; box-shadow: 0 6px 16px rgba(47,32,24,.14); background: #fff; flex: 0 0 auto; }
+.brand-logo { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; display: block; box-shadow: 0 6px 16px rgba(47,32,24,.14); background: #fff; flex: 0 0 auto; }
 .brand-mark { width: 52px; height: 52px; border: 2px solid #15100d; border-radius: 12px; background: #f6bf44; position: relative; display: grid; place-items: center; box-shadow: inset 10px 0 0 rgba(255,255,255,.28); }
 .brand-mark .oven { position: absolute; font-size: 31px; color: #58402a; transform: translateX(2px); }
 .brand-mark .cake { position: absolute; right: 5px; bottom: 7px; width: 16px; height: 16px; border-radius: 50%; color: #fff; background: #fff; box-shadow: -15px -8px 0 #fff; }
@@ -226,7 +226,7 @@ body.modal-open { overflow: hidden; }
 
 @media (max-width: 620px) {
   .brand strong { font-size: 17px; }
-  .brand-logo { width: 45px; height: 45px; }
+  .brand-logo { width: 54px; height: 54px; }
   .brand-mark { width: 45px; height: 45px; }
   .header-icons { display: none; }
   .hero h1 { font-size: 54px; }
@@ -288,7 +288,7 @@ body.modal-open { overflow: hidden; }
   border-radius: 10px;
   transform: none;
 }
-.reference-home .ref-brand-logo { width: 62px; height: 62px; box-shadow: 0 8px 20px rgba(47,32,24,.12); }
+.reference-home .ref-brand-logo { width: 88px; height: 88px; box-shadow: 0 8px 20px rgba(47,32,24,.12); }
 .reference-home .ref-nav {
   gap: clamp(24px, 4.2vw, 62px);
   font-size: 14px;
@@ -491,6 +491,7 @@ body.modal-open { overflow: hidden; }
   .reference-home .ref-announcement { padding: 8px 16px; height: auto; }
   .reference-home .ref-icons { display: none; }
   .reference-home .ref-brand strong { font-size: 20px; }
+  .reference-home .ref-brand-logo { width: 58px; height: 58px; }
   .reference-home .ref-brand-mark { width: 50px; height: 50px; }
   .ref-hero-copy h1 { font-size: 52px; }
   .ref-hero-copy h2 { font-size: 24px; }
@@ -537,7 +538,7 @@ body.modal-open { overflow: hidden; }
   border-bottom: 1px solid #f0e4d6;
 }
 .catalogue-brand { display: inline-flex; align-items: center; gap: 16px; color: var(--ref-ink); }
-.catalogue-brand-logo { width: 58px; height: 58px; box-shadow: 0 8px 20px rgba(47,32,24,.12); }
+.catalogue-brand-logo { width: 76px; height: 76px; box-shadow: 0 8px 20px rgba(47,32,24,.12); }
 .catalogue-brand .brand-mark { width: 58px; height: 58px; border-radius: 9px; }
 .catalogue-brand strong { font-size: 24px; line-height: .83; letter-spacing: .07em; font-weight: 950; }
 .catalogue-brand small { display: block; margin-top: 8px; font-size: 10px; letter-spacing: .38em; color: var(--ref-gold); font-weight: 800; }
@@ -624,7 +625,7 @@ body.modal-open { overflow: hidden; }
   .catalogue-topbar { grid-template-columns: 1fr; gap: 6px; font-size: 12px; }
   .catalogue-header { grid-template-columns: 1fr auto; padding: 16px 18px; }
   .catalogue-brand strong { font-size: 20px; }
-  .catalogue-brand-logo { width: 48px; height: 48px; }
+  .catalogue-brand-logo { width: 56px; height: 56px; }
   .catalogue-brand .brand-mark { width: 48px; height: 48px; }
   .catalogue-actions { gap: 15px; font-size: 25px; }
   .catalogue-main-nav { gap: 22px; font-size: 14px; }
