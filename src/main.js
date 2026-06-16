@@ -199,6 +199,16 @@ function closeProduct() {
   document.body.classList.remove('modal-open');
 }
 
+function setCartDrawer(open) {
+  const drawer = document.querySelector('#shoppingCart');
+  const backdrop = document.querySelector('.cart-drawer-backdrop');
+  document.body.classList.toggle('cart-open', open);
+  drawer?.setAttribute('aria-hidden', String(!open));
+  document.querySelectorAll('[data-cart-open]').forEach((button) => button.setAttribute('aria-expanded', String(open)));
+  if (backdrop) backdrop.hidden = !open;
+  if (open) drawer?.querySelector('#cartWhatsapp, [data-cart-close]')?.focus({ preventScroll: true });
+}
+
 function renderCart() {
   const list = document.querySelector('#cartList');
   const empty = document.querySelector('#cartEmpty');
@@ -263,7 +273,6 @@ function bindProductCards() {
     button.addEventListener('click', (event) => {
       event.stopPropagation();
       addToCart(button.dataset.addCart);
-      document.querySelector('#shoppingCart')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
 }
@@ -324,6 +333,12 @@ document.querySelector('.ref-load-more')?.addEventListener('click', () => {
   renderProducts();
 });
 
+document.querySelectorAll('[data-cart-open]').forEach((button) => button.addEventListener('click', () => setCartDrawer(true)));
+document.querySelectorAll('[data-cart-close]').forEach((button) => button.addEventListener('click', () => setCartDrawer(false)));
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') setCartDrawer(false);
+});
+
 const filterToggle = document.querySelector('[data-filter-toggle]');
 const filterBackdrop = document.querySelector('.filter-backdrop');
 function setFilterSidebar(open) {
@@ -345,7 +360,7 @@ document.querySelector('[data-modal-add]')?.addEventListener('click', (event) =>
   const key = event.currentTarget.dataset.modalAdd;
   addToCart(key, qty);
   closeProduct();
-  document.querySelector('#shoppingCart')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  setCartDrawer(true);
 });
 document.querySelector('#productModal')?.addEventListener('click', (event) => {
   if (event.target.id === 'productModal') closeProduct();

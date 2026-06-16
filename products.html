@@ -30,7 +30,7 @@
       <div class="catalogue-actions" aria-label="Quick actions">
         <a href="#catalogue" aria-label="Search products">⌕</a>
         <a href="mailto:littlesurprisehk0912@gmail.com" aria-label="Account enquiry">♙</a>
-        <a class="bag" href="#shoppingCart" aria-label="Open shopping cart">▢<span>0</span></a>
+        <button class="bag" type="button" data-cart-open aria-controls="shoppingCart" aria-expanded="false" aria-label="Open shopping cart">▢<span>0</span></button>
       </div>
     </header>
 
@@ -101,14 +101,18 @@
         </div>
       </section>
 
-      <section class="shopping-cart-panel" id="shoppingCart" aria-label="Shopping cart export to WhatsApp">
+      <div class="cart-drawer-backdrop" data-cart-close hidden></div>
+      <aside class="shopping-cart-panel" id="shoppingCart" aria-label="Shopping cart export to WhatsApp" aria-hidden="true">
         <div class="cart-panel-head">
           <div>
             <p>EXPORT TO WHATSAPP</p>
             <h2>購物車 Shopping Cart</h2>
             <span>先加入想要的產品，再一鍵匯出成 WhatsApp 訊息。暫時不會網上付款或直接落單。</span>
           </div>
-          <strong data-cart-count>0 件產品</strong>
+          <div class="cart-panel-tools">
+            <strong data-cart-count>0 件產品</strong>
+            <button class="cart-drawer-close" type="button" data-cart-close aria-label="Close shopping cart">×</button>
+          </div>
         </div>
         <p class="cart-empty" id="cartEmpty">購物車暫時未有產品。請在產品卡按「加入購物車」。</p>
         <div class="cart-list" id="cartList" aria-live="polite"></div>
@@ -116,7 +120,7 @@
           <a class="button primary disabled" id="cartWhatsapp" href="#catalogue" target="_blank" rel="noreferrer" aria-disabled="true">Send to WhatsApp</a>
           <button class="button outline" id="cartClear" type="button" hidden>清空購物車</button>
         </div>
-      </section>
+      </aside>
 
       <section class="catalogue-ref-footer-strip" id="orderHelp" aria-label="Ordering details">
         <article><span>♨</span><div><strong>全人手製作・法式甜品</strong><small>為你帶來每一個小驚喜</small></div></article>
