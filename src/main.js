@@ -49,7 +49,26 @@ const products = [
 
 const waBase = 'https://wa.me/85255310947?text=';
 const encode = (name) => encodeURIComponent(`你好，想查詢 Little Surprise ${name} 訂購資料。`);
+const cartStorageKey = 'little-surprise-cart-v1';
 const cartState = [];
+function loadCart() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(cartStorageKey) || '[]');
+    cartState.splice(0, cartState.length, ...saved
+      .map((entry) => {
+        const product = products.find((item) => item.img === entry.img);
+        const qty = Math.max(1, Math.min(99, Number(entry.qty) || 1));
+        return product ? { product, qty } : null;
+      })
+      .filter(Boolean));
+  } catch (error) {
+    localStorage.removeItem(cartStorageKey);
+  }
+}
+function saveCart() {
+  localStorage.setItem(cartStorageKey, JSON.stringify(cartState.map((item) => ({ img: item.product.img, qty: item.qty }))));
+}
+loadCart();
 const productLabel = (p) => `${p.name} / ${p.english}`;
 const buildCartMessage = () => [
   '你好，想向 Little Surprise 查詢／預訂以下產品：',
@@ -199,7 +218,34 @@ function closeProduct() {
   document.body.classList.remove('modal-open');
 }
 
+function ensureCartDrawer() {
+  if (document.querySelector('#shoppingCart')) return;
+  document.body.insertAdjacentHTML('beforeend', `
+    <div class="cart-drawer-backdrop" data-cart-close hidden></div>
+    <aside class="shopping-cart-panel" id="shoppingCart" aria-label="Shopping cart export to WhatsApp" aria-hidden="true">
+      <div class="cart-panel-head">
+        <div>
+          <p>EXPORT TO WHATSAPP</p>
+          <h2>購物車 Shopping Cart</h2>
+          <span>先加入想要的產品，再一鍵匯出成 WhatsApp 訊息。暫時不會網上付款或直接落單。</span>
+        </div>
+        <div class="cart-panel-tools">
+          <strong data-cart-count>0 件產品</strong>
+          <button class="cart-drawer-close" type="button" data-cart-close aria-label="Close shopping cart">×</button>
+        </div>
+      </div>
+      <p class="cart-empty" id="cartEmpty">購物車暫時未有產品。請在產品頁按「加入購物車」。</p>
+      <div class="cart-list" id="cartList" aria-live="polite"></div>
+      <div class="cart-actions">
+        <a class="button primary disabled" id="cartWhatsapp" href="./products.html#catalogue" target="_blank" rel="noreferrer" aria-disabled="true">Send to WhatsApp</a>
+        <button class="button outline" id="cartClear" type="button" hidden>清空購物車</button>
+      </div>
+    </aside>
+  `);
+}
+
 function setCartDrawer(open) {
+  ensureCartDrawer();
   const drawer = document.querySelector('#shoppingCart');
   const backdrop = document.querySelector('.cart-drawer-backdrop');
   document.body.classList.toggle('cart-open', open);
@@ -210,15 +256,16 @@ function setCartDrawer(open) {
 }
 
 function renderCart() {
+  ensureCartDrawer();
   const list = document.querySelector('#cartList');
   const empty = document.querySelector('#cartEmpty');
   const countEls = document.querySelectorAll('[data-cart-count]');
   const send = document.querySelector('#cartWhatsapp');
   const clear = document.querySelector('#cartClear');
-  const headerBag = document.querySelector('.catalogue-actions .bag span');
+  const headerBags = document.querySelectorAll('.catalogue-actions .bag span');
   const totalQty = cartState.reduce((sum, item) => sum + item.qty, 0);
   countEls.forEach((el) => { el.textContent = `${totalQty} 件產品`; });
-  if (headerBag) headerBag.textContent = totalQty;
+  headerBags.forEach((el) => { el.textContent = totalQty; });
   if (!list || !empty || !send) return;
   empty.hidden = cartState.length > 0;
   list.innerHTML = cartState.map((item) => `
@@ -245,6 +292,7 @@ function addToCart(productKey, quantity = 1) {
   const existing = cartState.find((item) => item.product.img === product.img);
   if (existing) existing.qty = Math.min(99, existing.qty + quantity);
   else cartState.push({ product, qty: Math.max(1, quantity) });
+  saveCart();
   renderProducts();
   renderCart();
 }
@@ -254,6 +302,7 @@ function changeCartQty(productKey, delta) {
   if (!item) return;
   item.qty += delta;
   if (item.qty <= 0) cartState.splice(cartState.indexOf(item), 1);
+  saveCart();
   renderProducts();
   renderCart();
 }
@@ -283,6 +332,7 @@ function syncFilterButtons() {
   });
 }
 
+ensureCartDrawer();
 updateFilterCounts();
 renderProducts();
 renderCart();
@@ -333,7 +383,10 @@ document.querySelector('.ref-load-more')?.addEventListener('click', () => {
   renderProducts();
 });
 
-document.querySelectorAll('[data-cart-open]').forEach((button) => button.addEventListener('click', () => setCartDrawer(true)));
+document.querySelectorAll('[data-cart-open]').forEach((button) => button.addEventListener('click', (event) => {
+  event.preventDefault();
+  setCartDrawer(true);
+}));
 document.querySelectorAll('[data-cart-close]').forEach((button) => button.addEventListener('click', () => setCartDrawer(false)));
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') setCartDrawer(false);
@@ -376,6 +429,7 @@ document.querySelector('#cartList')?.addEventListener('click', (event) => {
 });
 document.querySelector('#cartClear')?.addEventListener('click', () => {
   cartState.splice(0, cartState.length);
+  saveCart();
   renderProducts();
   renderCart();
 });

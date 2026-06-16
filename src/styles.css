@@ -519,7 +519,7 @@ body.modal-open { overflow: hidden; }
 .catalogue-topbar {
   height: 48px;
   display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr 1.25fr;
+  grid-template-columns: 1.6fr 1fr 1fr;
   align-items: center;
   gap: 20px;
   padding: 0 50px;
