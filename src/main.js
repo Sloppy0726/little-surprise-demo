@@ -207,6 +207,8 @@ function openProduct(productKey) {
   modal.querySelector('[data-modal-notes]').innerHTML = p.notes.map((note) => `<li>${note}</li>`).join('');
   modal.querySelector('[data-modal-wa]').href = `${waBase}${encode(p.name)}`;
   modal.querySelector('[data-modal-add]')?.setAttribute('data-modal-add', p.img);
+  qty = 1;
+  if (qtyOutput) qtyOutput.value = String(qty);
   modal.showModal();
   document.body.classList.add('modal-open');
 }
@@ -410,6 +412,7 @@ window.matchMedia('(min-width: 861px)').addEventListener('change', (event) => {
 
 document.querySelectorAll('[data-close-modal]').forEach((button) => button.addEventListener('click', closeProduct));
 document.querySelector('[data-modal-add]')?.addEventListener('click', (event) => {
+  syncQtyInput();
   const key = event.currentTarget.dataset.modalAdd;
   addToCart(key, qty);
   closeProduct();
@@ -421,6 +424,11 @@ document.querySelector('#productModal')?.addEventListener('click', (event) => {
 
 let qty = 1;
 const qtyOutput = document.querySelector('#qty');
+const clampQty = (value) => Math.max(1, Math.min(Number.parseInt(value, 10) || 1, 20));
+const syncQtyInput = () => {
+  qty = clampQty(qtyOutput?.value ?? qty);
+  if (qtyOutput) qtyOutput.value = String(qty);
+};
 document.querySelector('#cartList')?.addEventListener('click', (event) => {
   const deltaButton = event.target.closest('[data-cart-delta]');
   if (deltaButton) changeCartQty(deltaButton.dataset.cartProduct, Number(deltaButton.dataset.cartDelta));
@@ -439,11 +447,15 @@ document.querySelector('#cartWhatsapp')?.addEventListener('click', (event) => {
 
 document.querySelectorAll('[data-qty]').forEach((button) => {
   button.addEventListener('click', () => {
-    qty += button.dataset.qty === 'plus' ? 1 : -1;
-    qty = Math.max(1, Math.min(qty, 20));
-    if (qtyOutput) qtyOutput.textContent = qty;
+    qty = clampQty(qty + (button.dataset.qty === 'plus' ? 1 : -1));
+    if (qtyOutput) qtyOutput.value = String(qty);
   });
 });
+qtyOutput?.addEventListener('input', () => {
+  qty = clampQty(qtyOutput.value);
+});
+qtyOutput?.addEventListener('change', syncQtyInput);
+qtyOutput?.addEventListener('blur', syncQtyInput);
 
 const revealObserver = 'IntersectionObserver' in window ? new IntersectionObserver((entries) => {
   entries.forEach((entry) => {

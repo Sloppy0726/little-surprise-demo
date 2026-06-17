@@ -164,9 +164,11 @@ body.modal-open { overflow: hidden; }
 .icon-list li::before { content: '♧'; color: var(--tan); margin-right: 12px; font-weight: 900; }
 .qty { display: flex; align-items: center; gap: 0; margin: 22px 0 16px; font-weight: 800; }
 .qty span { margin-right: 16px; }
-.qty button, .qty output { width: 52px; height: 46px; border: 1px solid var(--line); display: grid; place-items: center; background: white; font-size: 18px; }
+.qty button, .qty input { width: 52px; height: 46px; border: 1px solid var(--line); display: grid; place-items: center; background: white; font-size: 18px; }
+.qty input { text-align: center; font: inherit; font-weight: 850; color: #3b281b; appearance: textfield; -moz-appearance: textfield; }
+.qty input::-webkit-outer-spin-button, .qty input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
 .qty button { cursor: pointer; }
-.qty output { border-left: 0; border-right: 0; }
+.qty input { border-left: 0; border-right: 0; }
 .detail-strip { margin-top: -28px; background: #fff; border: 1px solid var(--line); grid-template-columns: repeat(3, 1fr); }
 .product-tabs { margin-top: 36px; border: 1px solid var(--line); border-radius: 8px; display: grid; grid-template-columns: 1fr 340px; gap: 42px; background: #fffdf8; }
 .tabs { display: flex; gap: 40px; border-bottom: 1px solid var(--line); margin-bottom: 24px; }

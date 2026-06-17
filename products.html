@@ -147,7 +147,7 @@
         <p class="detail-price">HK$38</p>
         <p data-modal-copy>點擊產品後彈出的詳情內容。</p>
         <ul class="icon-list" data-modal-notes><li>手工製作・新鮮製作</li><li>實際口味、尺寸與供應請向店舖確認</li></ul>
-        <div class="qty"><span>數量</span><button type="button" data-qty="minus">−</button><output id="qty">1</output><button type="button" data-qty="plus">＋</button></div>
+        <div class="qty"><span>數量</span><button type="button" data-qty="minus" aria-label="減少數量">−</button><input id="qty" type="number" min="1" max="20" step="1" value="1" inputmode="numeric" aria-label="產品數量" /><button type="button" data-qty="plus" aria-label="增加數量">＋</button></div>
         <button class="button primary wide" type="button" data-modal-add>加入購物車</button>
         <a class="button ghost wide" data-modal-wa href="https://wa.me/85255310947">WhatsApp 查詢此產品</a>
       </div>
