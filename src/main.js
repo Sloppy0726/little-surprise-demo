@@ -207,7 +207,8 @@ function openProduct(productKey) {
   modal.querySelector('[data-modal-notes]').innerHTML = p.notes.map((note) => `<li>${note}</li>`).join('');
   modal.querySelector('[data-modal-wa]').href = `${waBase}${encode(p.name)}`;
   modal.querySelector('[data-modal-add]')?.setAttribute('data-modal-add', p.img);
-  qty = 1;
+  const cartEntry = cartState.find((item) => item.product.img === p.img);
+  qty = cartEntry?.qty || 1;
   if (qtyOutput) qtyOutput.value = String(qty);
   modal.showModal();
   document.body.classList.add('modal-open');
@@ -294,6 +295,18 @@ function addToCart(productKey, quantity = 1) {
   const existing = cartState.find((item) => item.product.img === product.img);
   if (existing) existing.qty = Math.min(99, existing.qty + quantity);
   else cartState.push({ product, qty: Math.max(1, quantity) });
+  saveCart();
+  renderProducts();
+  renderCart();
+}
+
+function setCartQuantity(productKey, quantity = 1) {
+  const product = products.find((item) => item.img === productKey || item.name === productKey);
+  if (!product) return;
+  const nextQty = Math.max(1, Math.min(99, quantity));
+  const existing = cartState.find((item) => item.product.img === product.img);
+  if (existing) existing.qty = nextQty;
+  else cartState.push({ product, qty: nextQty });
   saveCart();
   renderProducts();
   renderCart();
@@ -414,7 +427,7 @@ document.querySelectorAll('[data-close-modal]').forEach((button) => button.addEv
 document.querySelector('[data-modal-add]')?.addEventListener('click', (event) => {
   syncQtyInput();
   const key = event.currentTarget.dataset.modalAdd;
-  addToCart(key, qty);
+  setCartQuantity(key, qty);
   closeProduct();
   setCartDrawer(true);
 });
