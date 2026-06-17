@@ -50,6 +50,7 @@ const products = [
 const waBase = 'https://wa.me/85255310947?text=';
 const encode = (name) => encodeURIComponent(`你好，想查詢 Little Surprise ${name} 訂購資料。`);
 const cartStorageKey = 'little-surprise-cart-v1';
+const maxCartQty = 999;
 const cartState = [];
 function loadCart() {
   try {
@@ -57,7 +58,7 @@ function loadCart() {
     cartState.splice(0, cartState.length, ...saved
       .map((entry) => {
         const product = products.find((item) => item.img === entry.img);
-        const qty = Math.max(1, Math.min(99, Number(entry.qty) || 1));
+        const qty = Math.max(1, Math.min(maxCartQty, Number(entry.qty) || 1));
         return product ? { product, qty } : null;
       })
       .filter(Boolean));
@@ -293,8 +294,8 @@ function addToCart(productKey, quantity = 1) {
   const product = products.find((item) => item.img === productKey || item.name === productKey);
   if (!product) return;
   const existing = cartState.find((item) => item.product.img === product.img);
-  if (existing) existing.qty = Math.min(99, existing.qty + quantity);
-  else cartState.push({ product, qty: Math.max(1, quantity) });
+  if (existing) existing.qty = Math.min(maxCartQty, existing.qty + quantity);
+  else cartState.push({ product, qty: Math.min(maxCartQty, Math.max(1, quantity)) });
   saveCart();
   renderProducts();
   renderCart();
@@ -303,7 +304,7 @@ function addToCart(productKey, quantity = 1) {
 function setCartQuantity(productKey, quantity = 1) {
   const product = products.find((item) => item.img === productKey || item.name === productKey);
   if (!product) return;
-  const nextQty = Math.max(1, Math.min(99, quantity));
+  const nextQty = Math.max(1, Math.min(maxCartQty, quantity));
   const existing = cartState.find((item) => item.product.img === product.img);
   if (existing) existing.qty = nextQty;
   else cartState.push({ product, qty: nextQty });
@@ -437,7 +438,7 @@ document.querySelector('#productModal')?.addEventListener('click', (event) => {
 
 let qty = 1;
 const qtyOutput = document.querySelector('#qty');
-const clampQty = (value) => Math.max(1, Math.min(Number.parseInt(value, 10) || 1, 20));
+const clampQty = (value) => Math.max(1, Math.min(Number.parseInt(value, 10) || 1, maxCartQty));
 const syncQtyInput = () => {
   qty = clampQty(qtyOutput?.value ?? qty);
   if (qtyOutput) qtyOutput.value = String(qty);
