@@ -1,0 +1,140 @@
+Privacy Policy
+
+Last updated: 18 June 2026
+
+Little Surprise (“we”, “us”, or “our”) respects your privacy. This Privacy Policy explains how information may be collected, used, stored, and handled when you visit our website or contact us through WhatsApp, Instagram, email, phone, or other communication channels.
+
+This website is intended to help customers browse our products and send enquiry/order messages through WhatsApp. The website does not currently provide online payment, user accounts, or a full online checkout system.
+
+1. Information We May Collect
+
+We may collect or receive the following information when you contact us or make an enquiry:
+
+- Your name
+- Your phone number or WhatsApp contact
+- Your Instagram handle, email address, or other contact details if you contact us through those channels
+- Product enquiry or order details
+- Pickup or delivery date and time requested by you
+- Delivery address, if delivery is requested and confirmed
+- Notes or special requests provided by you
+- Any other information you choose to provide when communicating with us
+
+The website itself does not currently contain a contact form, account registration, or online payment form.
+
+2. Shopping Cart and Local Browser Storage
+
+Our website may use local browser storage, such as localStorage, to remember the products and quantities you add to your shopping cart.
+
+This helps you continue browsing without losing your selected items if you refresh or reopen the website on the same browser.
+
+The shopping cart information stored locally may include:
+
+- Selected product reference
+- Product quantity
+
+This information is stored on your own device/browser. It is not used for tracking, and it is not sent to us unless you choose to send the generated WhatsApp message.
+
+You can clear this information by:
+
+- Using the “clear cart” function on the website, if available
+- Clearing your browser’s site data
+- Using private/incognito browsing mode
+
+3. WhatsApp Enquiries and Order Messages
+
+When you click “Send to WhatsApp”, our website may generate a prefilled WhatsApp message containing the products and quantities selected in your cart.
+
+The message may also include blank fields for you to fill in, such as:
+
+- Name
+- Contact phone number
+- Pickup or delivery date and time
+- Notes or special requests
+
+The message is only sent to us if you choose to send it through WhatsApp.
+
+Your use of WhatsApp is also subject to WhatsApp’s own privacy policy and terms. We are not responsible for how WhatsApp, Meta, Instagram, or other third-party platforms process your information.
+
+4. How We Use Your Information
+
+We may use the information you provide to:
+
+- Reply to your enquiries
+- Confirm product availability
+- Confirm order details
+- Arrange pickup or delivery
+- Process payment arrangements through agreed channels
+- Provide customer service
+- Handle changes, cancellations, refunds, or complaints
+- Keep internal business records
+- Improve our products, services, and customer experience
+
+We will not use your personal information for unrelated purposes unless permitted by law or with your consent.
+
+5. Direct Marketing
+
+We will not use your personal information for direct marketing without your consent.
+
+If we send promotional messages through WhatsApp, Instagram, email, or other channels, you may ask us to stop receiving such messages at any time.
+
+6. Sharing of Information
+
+We may share your information only where reasonably necessary, including with:
+
+- Staff or persons assisting us in handling enquiries or orders
+- Delivery or courier service providers, if delivery is arranged
+- Payment or banking service providers, if needed for payment handling
+- Professional advisers, if required for accounting, legal, or business purposes
+- Government, regulatory, or law enforcement authorities where required by law
+
+We do not sell your personal information.
+
+7. Third-Party Platforms and Links
+
+Our website may contain links to third-party platforms, including WhatsApp and Instagram.
+
+If you click a third-party link or communicate with us through a third-party platform, that platform may collect and process your information according to its own privacy policy and terms.
+
+We are not responsible for the privacy practices of third-party websites, apps, or platforms.
+
+8. Website Hosting and Technical Data
+
+Our website may be hosted by third-party hosting providers. When you visit the website, technical information such as your IP address, browser type, device information, access time, and page requests may be processed by the hosting provider for security, maintenance, and website delivery purposes.
+
+We do not currently use cookies, advertising pixels, or analytics tools on this website. If we add these tools in the future, this Privacy Policy may be updated.
+
+9. Data Retention
+
+We will keep personal information only for as long as reasonably necessary for the purposes stated in this Privacy Policy, including handling enquiries, completing orders, customer service, record keeping, accounting, legal, or regulatory purposes.
+
+When the information is no longer needed, we will take reasonable steps to delete, anonymise, or securely store it.
+
+10. Security
+
+We take reasonable steps to protect personal information against unauthorised access, loss, misuse, or disclosure.
+
+However, no method of internet transmission, messaging, or electronic storage is completely secure. Customers should avoid sending highly sensitive information through WhatsApp, Instagram, or other messaging platforms unless necessary.
+
+11. Your Rights
+
+Subject to applicable laws, you may request access to or correction of your personal information held by us.
+
+You may contact us if you wish to:
+
+- Ask what personal information we hold about you
+- Correct inaccurate information
+- Withdraw consent for direct marketing
+- Ask questions about this Privacy Policy
+
+12. Contact Us
+
+If you have any questions about this Privacy Policy or how your personal information is handled, please contact us:
+
+Little Surprise
+WhatsApp / Phone: +852 5531 0947
+Instagram: @little.surprise_hk
+Email: littlesurprisehk0912@gmail.com
+
+13. Changes to This Privacy Policy
+
+We may update this Privacy Policy from time to time. The updated version will be posted on this website with the latest update date.
