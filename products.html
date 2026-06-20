@@ -53,6 +53,15 @@
         <button class="mobile-filter-toggle" type="button" data-filter-toggle aria-controls="catalogueFilters" aria-expanded="false">
           <span>篩選產品</span><strong>FILTER</strong>
         </button>
+        <button class="mobile-cart-toggle" type="button" data-cart-open aria-controls="shoppingCart" aria-expanded="false" aria-label="Open shopping cart">
+          <svg class="cart-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M5.2 6.4h14.1l-1.4 7.2a2 2 0 0 1-2 1.6H8.6a2 2 0 0 1-2-1.5L5.2 6.4Z" />
+            <path d="M4 4H2.6M5.2 6.4 4.7 4H3.8" />
+            <circle cx="9" cy="19" r="1.25" />
+            <circle cx="16" cy="19" r="1.25" />
+          </svg>
+          <span data-cart-badge>0</span>
+        </button>
         <div class="filter-backdrop" data-filter-close hidden></div>
         <aside class="ref-filter-panel" id="catalogueFilters" aria-label="Catalogue filters">
           <div class="mobile-filter-head">

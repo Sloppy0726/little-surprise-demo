@@ -266,7 +266,7 @@ function renderCart() {
   const countEls = document.querySelectorAll('[data-cart-count]');
   const send = document.querySelector('#cartWhatsapp');
   const clear = document.querySelector('#cartClear');
-  const headerBags = document.querySelectorAll('.catalogue-actions .bag span');
+  const headerBags = document.querySelectorAll('.catalogue-actions .bag span, [data-cart-badge]');
   const totalQty = cartState.reduce((sum, item) => sum + item.qty, 0);
   countEls.forEach((el) => { el.textContent = `${totalQty} 件產品`; });
   headerBags.forEach((el) => { el.textContent = totalQty; });
