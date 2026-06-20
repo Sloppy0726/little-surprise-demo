@@ -134,7 +134,7 @@ function productCard(p) {
         <div class="card-copy">
           <h3>${p.name}</h3>
           <p>${p.copy}</p>
-          <div class="card-line"><span class="ask-price">${p.price}</span><span class="card-detail" aria-hidden="true">▢</span></div>
+          <div class="card-line"><span class="ask-price">${p.price}</span></div>
         </div>
       </div>
       <button class="cart-add" type="button" data-add-cart="${p.img}">${inCart ? '已加入・再加一件' : '加入購物車'}</button>

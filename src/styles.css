@@ -142,7 +142,6 @@ h1, h2, h3, p { margin-top: 0; }
 .card-copy div { display: flex; align-items: center; justify-content: space-between; }
 .ask-price { font-weight: 900; color: var(--tan-dark); }
 .card-copy a { border: 1px solid var(--tan); color: var(--tan-dark); width: 32px; height: 32px; display: grid; place-items: center; border-radius: 50%; }
-.card-detail { border: 1px solid var(--tan); color: var(--tan-dark); min-width: 48px; height: 32px; padding: 0 10px; display: grid; place-items: center; border-radius: 999px; font-weight: 900; font-size: 13px; }
 .load-more { display: flex; margin: 28px auto 0; width: min(340px, 100%); background: #fffaf4; }
 
 .product-modal { width: min(1120px, calc(100vw - 28px)); border: 0; padding: 28px; border-radius: 24px; background: #fffdf8; color: var(--brown); box-shadow: 0 30px 90px rgba(34,22,14,.32); grid-template-columns: 1fr 1fr; gap: 38px; }
@@ -815,9 +814,8 @@ body.modal-open { overflow: hidden; }
 .catalogue-reference .card-copy { padding: 12px 13px 13px; min-height: 67px; }
 .catalogue-reference .card-copy h3 { font-size: 15px; font-weight: 650; margin: 0 0 7px; line-height: 1.2; }
 .catalogue-reference .card-copy p { display: none; }
-.catalogue-reference .card-line, .catalogue-reference .card-copy div { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.catalogue-reference .card-line, .catalogue-reference .card-copy div { display: flex; align-items: center; justify-content: flex-start; gap: 8px; }
 .catalogue-reference .ask-price { color: #1f140e; font-size: 16px; font-weight: 760; }
-.catalogue-reference .card-detail { width: auto; min-width: 0; height: auto; border: 0; border-radius: 0; padding: 0; color: #9b5f2f; font-size: 25px; font-weight: 400; line-height: 1; }
 .ref-load-more { display: flex; align-items: center; justify-content: center; gap: 22px; width: min(360px, 100%); height: 44px; margin: 24px auto 0; border: 1px solid #c98a58; border-radius: 5px; background: #fffdf9; color: #a66c39; font-size: 16px; font-weight: 800; }
 .catalogue-ref-footer-strip { max-width: 1256px; margin: 0 auto 36px; display: grid; grid-template-columns: 1.15fr 1fr 1.1fr 1fr; border-radius: 8px; background: linear-gradient(90deg, #fff2df, #fff7ed); border: 1px solid #f1ddc7; overflow: hidden; }
 .catalogue-ref-footer-strip article { min-height: 84px; display: grid; grid-template-columns: 56px 1fr; align-items: center; gap: 15px; padding: 17px 26px; border-right: 1px solid #e4c8aa; }
