@@ -199,6 +199,8 @@ body.modal-open { overflow: hidden; }
 .footer-legal { display: grid; justify-items: end; gap: 10px; }
 .footer-legal nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px; color: #fff8ef; font-weight: 800; }
 .footer-legal a { color: #fff8ef; text-decoration: underline; text-underline-offset: 4px; }
+.site-credit { justify-self: end; text-align: right; font-size: 12px; letter-spacing: .04em; opacity: .82; }
+.site-credit a { color: #f1c27a; font-weight: 850; }
 .footer-legal a:hover, .footer-legal a:focus-visible { color: #f1c27a; }
 .legal-panel { margin-top: 34px; padding: clamp(28px, 5vw, 48px); border-radius: 24px; background: #fffdf8; border: 1px solid #eadcc8; box-shadow: 0 14px 34px rgba(47,32,24,.07); }
 .legal-panel h2 { margin-top: 0; font-size: clamp(26px, 3vw, 38px); }
@@ -318,6 +320,7 @@ body.modal-open { overflow: hidden; }
   .product-modal { padding: 20px; }
   .footer-legal { justify-items: start; }
   .footer-legal nav { justify-content: flex-start; }
+  .site-credit { justify-self: start; text-align: left; }
   .catalogue-hero div { padding: 28px 22px; }
   .catalogue-hero h2 span { display: block; margin: 12px 0 0; }
   .selected-row { align-items: flex-start; gap: 14px; flex-direction: column; }
